@@ -1,5 +1,6 @@
 ---
 import { Image, getImage } from 'astro:assets';
+import { getCollection } from 'astro:content';
 import type { ImageMetadata } from 'astro';
 import Base from '../layouts/Base.astro';
 import Sticker from '../components/Sticker.astro';
@@ -33,6 +34,7 @@ const imageFor = (file: string) => {
 const teamFiles = import.meta.glob<{ default: ImageMetadata }>('../assets/time/*.png', { eager: true });
 const photoFor = (file?: string) => (file ? teamFiles[`../assets/time/${file}`]?.default : undefined);
 const founderPhoto = photoFor(founder.photo);
+const postCount = (await getCollection('blog')).length;
 
 const works = await Promise.all(
   portfolio.map(async (w, i) => {
@@ -400,12 +402,23 @@ let serviceNo = 0;
 
         <div class="contact__news">
           <Newsletter id="footer" tone="paper" />
-          <a class="contact__ig" href={agency.instagram} target="_blank" rel="noopener">
-            <Icon name="instagram" />
-            <span>
-              Siga <strong>{agency.instagramHandle}</strong>: foi lá que tudo começou, com dicas do que postar.
-            </span>
-          </a>
+          <div class="contact__more">
+            <div class="contact__blog">
+              <p>
+                <span class="label contact__blog-kicker">Blog · {postCount} posts</span>
+                Ainda pensando? Comece pelas dicas de comunicação e marketing que a gente publica.
+              </p>
+              <a class="btn btn--ink" href="/blog/">
+                Acessar o blog <Icon name="arrow" />
+              </a>
+            </div>
+            <a class="contact__ig" href={agency.instagram} target="_blank" rel="noopener">
+              <Icon name="instagram" />
+              <span>
+                Siga <strong>{agency.instagramHandle}</strong>: foi lá que tudo começou, com dicas do que postar.
+              </span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -1688,6 +1701,26 @@ let serviceNo = 0;
     margin-top: clamp(3rem, 6vw, 4.5rem);
     padding-top: 2rem;
     border-top: 3px solid var(--ink);
+  }
+
+  .contact__more {
+    display: grid;
+    gap: 1.8rem;
+  }
+
+  .contact__blog {
+    display: grid;
+    justify-items: start;
+    gap: 1rem;
+    max-width: 40ch;
+    font-size: 1.05rem;
+  }
+
+  .contact__blog-kicker {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.85rem;
+    color: var(--terra);
   }
 
   .contact__ig {
