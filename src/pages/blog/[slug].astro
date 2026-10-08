@@ -1,0 +1,301 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Newsletter from '../../components/Newsletter.astro';
+import Icon from '../../components/Icon.astro';
+import PostSticker from '../../components/PostSticker.astro';
+import { primaryContact } from '../../data/site';
+import { formatDate, sortPosts } from '../../lib/blog';
+
+export async function getStaticPaths() {
+  const posts = sortPosts(await getCollection('blog'));
+  return posts.map((post, i) => ({
+    params: { slug: post.id },
+    props: { post, related: [posts[i - 1], posts[i + 1], posts[i + 2] ?? posts[i - 2]].filter(Boolean).slice(0, 3) },
+  }));
+}
+
+const { post, related } = Astro.props;
+const { Content } = await render(post);
+const { title, description, date, cover, coverAlt, readingMinutes } = post.data;
+---
+
+<Base title={`${title} · Blog O Que Eu Postaria?`} description={description}>
+  <Header current="blog" />
+
+  <main id="conteudo">
+    <article>
+      <header class="page page--terra post-head">
+        <div class="wrap post-head__in">
+          <a class="post-back" href="/blog/"><Icon name="arrow" /> Todos os posts</a>
+          <p class="post-meta label">
+            <time datetime={date.toISOString().slice(0, 10)}>{formatDate(date)}</time>
+            <span aria-hidden="true">·</span>
+            {readingMinutes} min de leitura
+            <span aria-hidden="true">·</span>
+            Equipe OQEP
+          </p>
+          <h1 class="post-title">{title}</h1>
+        </div>
+      </header>
+
+      <div class="page page--paper post-body">
+        <div class="wrap">
+          {
+            cover && (
+              <figure class="post-cover">
+                <Image src={cover} alt={coverAlt} widths={[640, 960, 1400]} sizes="(min-width: 60rem) 52rem, 92vw" loading="eager" />
+              </figure>
+            )
+          }
+          <div class="prose">
+            <Content />
+          </div>
+
+          <aside class="post-end" aria-label="Continue com a gente">
+            <div class="post-end__news">
+              <h2 class="post-end__title">Gostou? Receba as próximas dicas.</h2>
+              <Newsletter id="post" tone="paper" />
+            </div>
+            <div class="post-end__talk">
+              <h2 class="post-end__title">Quer aplicar isso na sua marca?</h2>
+              <p>A gente começa entendendo o seu negócio e monta a estratégia antes do primeiro post.</p>
+              <a class="btn btn--foil" href={primaryContact.whatsapp} target="_blank" rel="noopener">
+                <Icon name="whatsapp" /> Falar no WhatsApp
+              </a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </article>
+
+    <section class="page page--terra more" aria-labelledby="more-title">
+      <div class="wrap">
+        <h2 class="title more__title" id="more-title">Leia também</h2>
+        <ul class="more__list" role="list">
+          {
+            related.map((p) => (
+              <li>
+                <PostSticker post={p} />
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Base>
+
+<style>
+  .post-head {
+    padding-block: clamp(2.5rem, 6vw, 4.5rem) clamp(7rem, 14vw, 11rem);
+  }
+
+  .post-head__in {
+    max-width: 56rem;
+  }
+
+  .post-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .post-back :global(svg) {
+    width: 1.15rem;
+    height: 1.15rem;
+    transform: scaleX(-1);
+  }
+
+  .post-back:hover {
+    text-decoration: underline;
+  }
+
+  .post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2rem 0.6rem;
+    margin-top: clamp(1.6rem, 4vw, 2.6rem);
+    color: var(--terra-tint);
+    font-size: 0.9rem;
+  }
+
+  .post-title {
+    margin-top: 0.8rem;
+    font-size: clamp(2rem, 4.6vw, 3.7rem);
+    font-stretch: 112%;
+    font-weight: 900;
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  .post-body {
+    padding-bottom: clamp(4rem, 8vw, 6rem);
+  }
+
+  .post-body .wrap {
+    max-width: 56rem;
+  }
+
+  .post-cover {
+    margin-top: clamp(-9rem, -12vw, -5.5rem);
+    padding: 0.5rem;
+    border-radius: 0.9rem;
+    background: var(--white);
+    box-shadow: var(--shadow-lift);
+    rotate: -1deg;
+  }
+
+  .post-cover :global(img) {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+  }
+
+  /* Article typography */
+  .prose {
+    max-width: 68ch;
+    margin: clamp(2.5rem, 6vw, 4rem) auto 0;
+    font-size: clamp(1.06rem, 1.3vw, 1.18rem);
+    line-height: 1.7;
+    color: var(--ink);
+  }
+
+  .prose :global(> * + *) {
+    margin-top: 1.1em;
+  }
+
+  .prose :global(h2) {
+    margin-top: 2.2em;
+    font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+    font-stretch: 112%;
+    font-weight: 900;
+    line-height: 1.15;
+    color: var(--terra);
+    text-wrap: balance;
+  }
+
+  .prose :global(h3) {
+    margin-top: 1.8em;
+    font-size: 1.2rem;
+    font-weight: 800;
+    line-height: 1.25;
+  }
+
+  .prose :global(h4) {
+    margin-top: 1.6em;
+    font-size: 1.05rem;
+    font-weight: 800;
+  }
+
+  .prose :global(h2 + *),
+  .prose :global(h3 + *),
+  .prose :global(h4 + *) {
+    margin-top: 0.5em;
+  }
+
+  .prose :global(ul),
+  .prose :global(ol) {
+    padding-left: 1.3em;
+  }
+
+  .prose :global(li + li) {
+    margin-top: 0.4em;
+  }
+
+  .prose :global(li::marker) {
+    color: var(--terra);
+    font-weight: 800;
+  }
+
+  .prose :global(strong) {
+    font-weight: 800;
+  }
+
+  .prose :global(a) {
+    color: var(--terra);
+    font-weight: 700;
+  }
+
+  .prose :global(blockquote) {
+    padding: 0.2em 0 0.2em 1.2em;
+    border-left: 1px solid var(--terra);
+    font-size: 1.12em;
+    font-weight: 700;
+  }
+
+  .prose :global(iframe) {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border: 0;
+    border-radius: 0.6rem;
+  }
+
+  .prose :global(> p:first-child) {
+    font-size: 1.12em;
+  }
+
+  /* End of post: newsletter + talk */
+  .post-end {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: 2rem;
+    max-width: 52rem;
+    margin: clamp(3rem, 6vw, 4.5rem) auto 0;
+    padding-top: 2rem;
+    border-top: 3px solid var(--ink);
+  }
+
+  .post-end__title {
+    font-size: 1.2rem;
+    font-weight: 900;
+    font-stretch: 108%;
+    line-height: 1.2;
+    margin-bottom: 0.9rem;
+  }
+
+  .post-end__talk {
+    padding: 1.4rem;
+    border-radius: 1rem;
+    background: var(--ink);
+    color: var(--white);
+  }
+
+  .post-end__talk p {
+    margin-bottom: 1.1rem;
+    color: #d9cfc9;
+    font-size: 0.98rem;
+  }
+
+  @media (max-width: 56rem) {
+    .post-end {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Read next */
+  .more {
+    padding-block: clamp(3.5rem, 7vw, 6rem);
+  }
+
+  .more__title {
+    font-size: clamp(2rem, 5vw, 4rem);
+  }
+
+  .more__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
+    gap: 1.6rem;
+    margin-top: 2rem;
+  }
+</style>

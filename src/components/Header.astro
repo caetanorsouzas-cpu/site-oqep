@@ -1,0 +1,149 @@
+---
+import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
+import logo from '../assets/brand/logo.svg';
+import { primaryContact } from '../data/site';
+
+interface Props {
+  current?: 'home' | 'blog';
+}
+const { current = 'home' } = Astro.props;
+const home = current === 'home';
+const base = home ? '' : '/';
+---
+
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="top">
+    <div class="wrap top__in">
+      <a class="top__brand" href={home ? "#inicio" : "/"} aria-label="O Que Eu Postaria? Início">
+        <Image src={logo} alt="" width={44} height={44} loading="eager" />
+        <span class="top__name">
+          <span class="label">O Que Eu Postaria?</span>
+          <span class="top__desc">Agência de Comunicação e Marketing</span>
+        </span>
+      </a>
+      <nav class="top__nav" aria-label="Seções">
+        <a href={`${base}#album`}>Trabalhos</a>
+        <a href={`${base}#servicos`}>Serviços</a>
+        <a href={`${base}#time`}>Time</a>
+        <a href="/blog/" aria-current={current === 'blog' ? 'page' : undefined}>Blog</a>
+        <a href={`${base}#contato`}>Contato</a>
+      </nav>
+      <a class="btn btn--foil top__cta" href={primaryContact.whatsapp} target="_blank" rel="noopener">
+        <Icon name="whatsapp" />
+        <span>WhatsApp</span>
+      </a>
+    </div>
+  </header>
+
+<style>
+  .skip {
+    position: absolute;
+    left: 1rem;
+    top: -4rem;
+    z-index: 100;
+    padding: 0.7rem 1rem;
+    background: var(--foil);
+    color: var(--ink);
+    font-weight: 800;
+    border-radius: 0.4rem;
+  }
+
+  .skip:focus {
+    top: 1rem;
+  }
+
+  /* Header strip */
+  .top {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--terra);
+    color: var(--white);
+    border-bottom: 1px solid rgb(255 255 255 / 0.16);
+  }
+
+  .top__in {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    min-height: 4.25rem;
+  }
+
+  .top__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    text-decoration: none;
+    margin-right: auto;
+  }
+
+  .top__brand :global(img) {
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px var(--white);
+  }
+
+  .top__name {
+    display: grid;
+    line-height: 1.1;
+  }
+
+  .top__name .label {
+    font-size: 1.05rem;
+  }
+
+  .top__desc {
+    font-size: 0.78rem;
+    color: var(--terra-tint);
+  }
+
+  .top__nav {
+    display: flex;
+    gap: 1.6rem;
+    font-weight: 700;
+  }
+
+  .top__nav a {
+    text-decoration: none;
+    padding-block: 0.4rem;
+    background: linear-gradient(currentColor 0 0) left bottom / 0 2px no-repeat;
+    transition: background-size 0.3s var(--ease-out);
+  }
+
+  .top__nav a:hover {
+    background-size: 100% 2px;
+  }
+
+  .top__cta {
+    min-height: 2.75rem;
+    padding: 0.6rem 1.1rem;
+  }
+
+  @media (max-width: 56rem) {
+    .top__nav {
+      display: none;
+    }
+  }
+
+  @media (max-width: 30rem) {
+    .top__desc {
+      display: none;
+    }
+
+    .top__cta span {
+      display: none;
+    }
+
+    .top__cta {
+      padding: 0.6rem;
+      width: 2.9rem;
+    }
+  }
+
+  .top__nav a[aria-current='page'] {
+    background-size: 100% 2px;
+  }
+</style>

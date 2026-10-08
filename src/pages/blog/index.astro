@@ -1,0 +1,202 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Newsletter from '../../components/Newsletter.astro';
+import { formatDate, sortPosts } from '../../lib/blog';
+
+const posts = sortPosts(await getCollection('blog'));
+const years = [...new Set(posts.map((p) => p.data.date.getUTCFullYear()))];
+---
+
+<Base
+  title="Blog · O Que Eu Postaria?"
+  description="Dicas de comunicação, redes sociais e marketing da O Que Eu Postaria? para empresas e profissionais que querem saber o que postar."
+>
+  <Header current="blog" />
+
+  <main id="conteudo">
+    <section class="page page--terra blog-head" aria-labelledby="blog-title">
+      <div class="wrap blog-head__in">
+        <div>
+          <h1 class="title blog-title" id="blog-title">Blog</h1>
+          <p class="blog-lead">Dicas de comunicação e marketing para quem quer saber o que postar.</p>
+        </div>
+        <Newsletter id="blog" />
+      </div>
+    </section>
+
+    <section class="page page--paper blog-list" aria-label="Todos os posts">
+      <div class="wrap">
+        {
+          years.map((year) => (
+            <section class="year" aria-labelledby={`ano-${year}`}>
+              <h2 class="year__title label" id={`ano-${year}`}>
+                {year}
+              </h2>
+              <ul class="posts" role="list">
+                {posts
+                  .filter((p) => p.data.date.getUTCFullYear() === year)
+                  .map((p) => (
+                    <li class="post">
+                      <a class="post__link" href={`/blog/${p.id}/`}>
+                        <span class="post__text">
+                          <span class="post__meta label">
+                            <time datetime={p.data.date.toISOString().slice(0, 10)}>{formatDate(p.data.date)}</time> · {p.data.readingMinutes} min de leitura
+                          </span>
+                          <span class="post__title">{p.data.title}</span>
+                          <span class="post__desc">{p.data.description}</span>
+                        </span>
+                        {p.data.cover && (
+                          <span class="post__thumb">
+                            <Image src={p.data.cover} alt="" widths={[240, 480]} sizes="15rem" />
+                          </span>
+                        )}
+                      </a>
+                    </li>
+                  ))}
+              </ul>
+            </section>
+          ))
+        }
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Base>
+
+<style>
+  .blog-head {
+    padding-block: clamp(3rem, 7vw, 5.5rem);
+  }
+
+  .blog-head__in {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 30rem);
+    gap: 2rem 4rem;
+    align-items: end;
+  }
+
+  .blog-title {
+    font-size: clamp(3.4rem, 10vw, 8rem);
+  }
+
+  .blog-lead {
+    margin-top: 1rem;
+    max-width: 34ch;
+    font-size: clamp(1.15rem, 1.8vw, 1.4rem);
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  @media (max-width: 52rem) {
+    .blog-head__in {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .blog-list {
+    padding-block: clamp(2.5rem, 6vw, 4.5rem) clamp(4rem, 8vw, 6rem);
+  }
+
+  .blog-list .wrap {
+    max-width: 62rem;
+  }
+
+  .year + .year {
+    margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  }
+
+  .year__title {
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--ink);
+    font-size: 1rem;
+    color: var(--terra);
+  }
+
+  .post {
+    border-bottom: 1px solid var(--paper-line);
+  }
+
+  .post__link {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 13rem;
+    gap: 2rem;
+    align-items: center;
+    padding-block: 1.5rem;
+    text-decoration: none;
+  }
+
+  .post__text {
+    display: grid;
+    gap: 0.4rem;
+  }
+
+  .post__meta {
+    font-size: 0.85rem;
+    color: var(--terra);
+  }
+
+  .post__title {
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    font-weight: 800;
+    line-height: 1.22;
+    text-wrap: pretty;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.18em;
+  }
+
+  .post__desc {
+    max-width: 62ch;
+    color: var(--ink-soft);
+    font-size: 0.98rem;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .post__thumb {
+    display: block;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    background: var(--terra-deep);
+  }
+
+  .post__thumb :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s var(--ease-out);
+  }
+
+  .post__link:hover .post__title {
+    color: var(--terra);
+    text-decoration-line: underline;
+  }
+
+  .post__link:hover .post__thumb :global(img) {
+    transform: scale(1.04);
+  }
+
+  @media (max-width: 40rem) {
+    .post__link {
+      grid-template-columns: minmax(0, 1fr) 6.5rem;
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .post__desc {
+      display: none;
+    }
+
+    .post__thumb {
+      aspect-ratio: 1;
+    }
+  }
+</style>

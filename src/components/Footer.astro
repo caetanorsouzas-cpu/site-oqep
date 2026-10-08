@@ -1,0 +1,51 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/brand/logo.svg';
+import { agency } from '../data/site';
+---
+
+  <footer class="page page--dark foot">
+    <div class="wrap foot__in">
+      <Image src={logo} alt="" width={72} height={72} />
+      <p>
+        <strong class="label">{agency.name}</strong><br />
+        {agency.descriptor}<br />
+        {agency.city} · desde 2021 · atendimento no Brasil inteiro
+      </p>
+      <p class="foot__small">© {new Date().getFullYear()} {agency.name}</p>
+    </div>
+  </footer>
+
+<style>
+  /* Footer */
+  .foot {
+    padding-block: 3rem;
+  }
+
+  .foot__in {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.2rem 2rem;
+  }
+
+  .foot__in :global(img) {
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px var(--white);
+  }
+
+  .foot__in p {
+    color: var(--terra-tint);
+    line-height: 1.5;
+  }
+
+  .foot__in strong {
+    color: var(--white);
+    font-size: 1.1rem;
+  }
+
+  .foot__small {
+    margin-left: auto;
+    font-size: 0.85rem;
+  }
+</style>

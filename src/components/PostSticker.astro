@@ -1,0 +1,88 @@
+---
+// Um post do blog como figurinha: capa, faixa preta com data e título.
+import { Image } from 'astro:assets';
+import type { Post } from '../lib/blog';
+import { formatShort } from '../lib/blog';
+
+interface Props {
+  post: Post;
+  sizes?: string;
+}
+const { post, sizes = '(min-width: 64rem) 24rem, (min-width: 40rem) 45vw, 90vw' } = Astro.props;
+const { title, date, cover, readingMinutes } = post.data;
+---
+
+<a class="pst" href={`/blog/${post.id}/`}>
+  <span class="pst__photo">
+    {cover && <Image src={cover} alt="" widths={[400, 640, 900]} sizes={sizes} />}
+  </span>
+  <span class="pst__plate">
+    <span class="pst__meta label">
+      <time datetime={date.toISOString().slice(0, 10)}>{formatShort(date)} {date.getUTCFullYear()}</time> · {readingMinutes} min
+    </span>
+    <span class="pst__title">{title}</span>
+  </span>
+</a>
+
+<style>
+  .pst {
+    position: relative;
+    display: grid;
+    height: 100%;
+    padding: 0.45rem 0.45rem 0;
+    border-radius: var(--radius-sticker);
+    background: var(--white);
+    color: var(--ink);
+    text-decoration: none;
+    box-shadow: var(--shadow-sticker);
+    overflow: hidden;
+    rotate: var(--tilt, 0deg);
+    transition:
+      transform 0.35s var(--ease-out),
+      rotate 0.35s var(--ease-out),
+      box-shadow 0.35s var(--ease-out);
+  }
+
+  .pst:hover,
+  .pst:focus-visible {
+    transform: translateY(-5px);
+    rotate: 0deg;
+    box-shadow: var(--shadow-lift);
+  }
+
+  .pst__photo {
+    display: block;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: calc(var(--radius-sticker) - 0.25rem);
+    background: var(--terra-deep);
+  }
+
+  .pst__photo :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .pst__plate {
+    display: grid;
+    align-content: start;
+    gap: 0.35rem;
+    margin: 0.45rem -0.45rem 0;
+    padding: 0.7rem 0.8rem 0.9rem;
+    background: var(--ink);
+    color: var(--white);
+  }
+
+  .pst__meta {
+    font-size: 0.75rem;
+    color: var(--foil);
+  }
+
+  .pst__title {
+    font-weight: 800;
+    font-size: 1.02rem;
+    line-height: 1.25;
+    text-wrap: pretty;
+  }
+</style>
