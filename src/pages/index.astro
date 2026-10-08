@@ -1398,9 +1398,12 @@ let serviceNo = 0;
     --tilt: 1.2deg;
   }
 
+  /* Pinned inside the padding, so the photo can't stretch the slot past its aspect ratio */
   .member__slot--glued :global(img) {
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    inset: 0.35rem;
+    width: calc(100% - 0.7rem);
+    height: calc(100% - 0.7rem);
     object-fit: cover;
     object-position: 50% 20%;
     border-radius: calc(var(--radius-sticker) - 0.2rem);
