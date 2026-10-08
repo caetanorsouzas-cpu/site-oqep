@@ -73,7 +73,7 @@ let serviceNo = 0;
           <h1 class="title hero__title" id="hero-title">
             O que eu <span class="hero__line">postaria?</span>
           </h1>
-          <p class="hero__answer">A gente responde. Primeiro com estratégia, depois com o post.</p>
+          <p class="hero__answer"><span class="hero__box">A gente responde.</span> Primeiro com estratégia, depois com o post.</p>
           <p class="hero__sub">
             Agência de comunicação e marketing de Porto Alegre (RS) para empresas e profissionais do Brasil inteiro.
           </p>
@@ -389,6 +389,16 @@ let serviceNo = 0;
     color: var(--cream);
     max-width: 26ch;
     text-wrap: balance;
+  }
+
+  /* a printed band, like the highlight boxes on the agency's Instagram covers */
+  .hero__box {
+    display: block;
+    width: fit-content;
+    margin-bottom: 0.35em;
+    padding: 0.06em 0.35em 0.14em;
+    background: var(--cream);
+    color: var(--terra-deep);
   }
 
   .hero__sub {
