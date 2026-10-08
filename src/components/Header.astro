@@ -5,7 +5,7 @@ import logo from '../assets/brand/logo.svg';
 import { primaryContact } from '../data/site';
 
 interface Props {
-  current?: 'home' | 'blog';
+  current?: 'home' | 'blog' | 'sobre';
 }
 const { current = 'home' } = Astro.props;
 const home = current === 'home';
@@ -28,9 +28,9 @@ const base = home ? '' : '/';
         <span class="top__menu-close"><Icon name="close" /></span>
       </button>
       <nav class="top__nav" id="top-nav" aria-label="Seções">
-        <a href={`${base}#album`}>Trabalhos</a>
+        <a href={home ? "#inicio" : "/"} aria-current={home ? 'page' : undefined}>Home</a>
         <a href={`${base}#servicos`}>Serviços</a>
-        <a href={`${base}#time`}>Time</a>
+        <a href="/sobre/" aria-current={current === 'sobre' ? 'page' : undefined}>Sobre nós</a>
         <a href="/blog/" aria-current={current === 'blog' ? 'page' : undefined}>Blog</a>
         <a href={`${base}#contato`}>Contato</a>
       </nav>
