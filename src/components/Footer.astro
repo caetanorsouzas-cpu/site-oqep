@@ -12,7 +12,12 @@ import { agency } from '../data/site';
         {agency.descriptor}<br />
         {agency.city} · desde 2021 · atendimento no Brasil inteiro
       </p>
-      <p class="foot__small">© {new Date().getFullYear()} {agency.name}</p>
+    </div>
+    <div class="wrap foot__legal">
+      <p>
+        {agency.name} © {new Date().getFullYear()} - Todos os direitos reservados - CNPJ: 41.963.234/0001-11 | Site construído por{' '}
+        <a href="https://www.instagram.com/ca3tano_ramos/" target="_blank" rel="noopener">Caetano&nbsp;Ramos</a>
+      </p>
     </div>
   </footer>
 
@@ -44,8 +49,22 @@ import { agency } from '../data/site';
     font-size: 1.1rem;
   }
 
-  .foot__small {
-    margin-left: auto;
+  /* Legal line at the very bottom */
+  .foot__legal {
+    margin-top: 2rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid rgb(255 255 255 / 0.16);
+  }
+
+  .foot__legal p {
     font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--cream);
+  }
+
+  .foot__legal a {
+    color: var(--white);
+    font-weight: 700;
+    text-underline-offset: 0.2em;
   }
 </style>
