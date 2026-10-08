@@ -57,13 +57,16 @@ export const contacts: Contact[] = [
 
 export const primaryContact = contacts[0];
 
-export const team = [
-  { name: 'Andréia Ramires', role: 'Jornalista e fundadora' },
+// Time. Para colocar a foto de alguém: salve em src/assets/time/ e preencha `photo`.
+// A fundadora aparece na figurinha dourada, acima da lista do time.
+export const founder = { name: 'Andréia Ramires', role: 'Jornalista e fundadora', photo: 'andreia-ramires.png' };
+
+export const team: { name: string; role: string; photo?: string }[] = [
   { name: 'Pietra Martins', role: 'Head de marketing e Comercial' },
-  { name: 'Henrique Souza', role: 'Comercial' },
+  { name: 'Henrique Souza', role: 'Comercial', photo: 'henrique-souza.png' },
   { name: 'Eduardo Soares', role: 'Designer' },
-  { name: 'Erick Silveira', role: 'Gestor de tráfego' },
-  { name: 'Adriano Moraes', role: 'Financeiro' },
+  { name: 'Erick Silveira', role: 'Gestor de tráfego', photo: 'erick-silveira.png' },
+  { name: 'Adriano Moraes', role: 'Financeiro', photo: 'adriano-moraes.png' },
 ];
 
 export const founderQuote = [
