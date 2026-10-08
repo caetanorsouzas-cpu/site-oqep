@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.astro/
+.env
+.env.*
+.impeccable/review/
+.impeccable/questions/
+.impeccable/hook.cache.json
+.impeccable/config.local.json
+# binário do impeccable: o launcher baixa sozinho na primeira execução
+.claude/skills/impeccable/scripts/bin/
+.claude/settings.local.json

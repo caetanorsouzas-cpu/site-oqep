@@ -1,0 +1,20 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "bounce-easing",
+        "value": "cubic-bezier(0.34, 1.56, 0.64, 1)",
+        "createdAt": "2026-10-08T02:25:11.296Z",
+        "reason": "builder: spring sticker drop is the direction contract's motion grammar, mirroring the user-pinned reference rectangles.fm (spring pop-ins, bounce 0.2)"
+      },
+      {
+        "rule": "bounce-easing",
+        "value": "var(--ease-spring)",
+        "createdAt": "2026-10-08T02:25:11.343Z",
+        "reason": "builder: same spring token; direction contract motion grammar from the user-pinned rectangles.fm reference"
+      }
+    ]
+  }
+}

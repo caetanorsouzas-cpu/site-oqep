@@ -1,0 +1,153 @@
+---
+// Inscrição na newsletter. Defina PUBLIC_NEWSLETTER_ENDPOINT (no .env) com a URL
+// do serviço de e-mail (ex.: formulário do Brevo, Mailchimp, RD Station) para ativar.
+import { agency } from '../data/site';
+
+interface Props {
+  id: string;
+  tone?: 'terra' | 'paper';
+}
+const { id, tone = 'terra' } = Astro.props;
+const endpoint = import.meta.env.PUBLIC_NEWSLETTER_ENDPOINT ?? '';
+---
+
+<form class:list={['news', `news--${tone}`]} method="post" action={endpoint || undefined} data-newsletter data-endpoint={endpoint} novalidate>
+  <label class="news__label" for={`${id}-email`}>Receba dicas do que postar no seu e-mail</label>
+  <div class="news__row">
+    <input
+      class="news__input"
+      id={`${id}-email`}
+      name="email"
+      type="email"
+      autocomplete="email"
+      inputmode="email"
+      placeholder="seu@email.com.br"
+      required
+      aria-describedby={`${id}-msg`}
+    />
+    <button class="btn btn--foil news__btn" type="submit">Quero receber</button>
+  </div>
+  <p class="news__msg" id={`${id}-msg`} role="status" aria-live="polite"></p>
+  <template data-pending>
+    As inscrições abrem em breve. Enquanto isso, as dicas saem no Instagram{' '}
+    <a href={agency.instagram} target="_blank" rel="noopener">{agency.instagramHandle}</a>.
+  </template>
+</form>
+
+<style>
+  .news {
+    display: grid;
+    gap: 0.6rem;
+    max-width: 34rem;
+  }
+
+  .news__label {
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  .news__row {
+    display: flex;
+    gap: 0.4rem;
+    padding: 0.35rem;
+    border-radius: 999px;
+    background: var(--white);
+    box-shadow: var(--shadow-sticker);
+  }
+
+  .news__input {
+    flex: 1;
+    min-width: 0;
+    padding: 0 1rem;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--ink);
+    font-size: 1rem;
+  }
+
+  .news__input::placeholder {
+    color: #7a6a62;
+  }
+
+  .news__input:focus-visible {
+    outline-offset: 0;
+  }
+
+  .news__input[aria-invalid='true'] {
+    outline: 2px solid var(--terra);
+  }
+
+  .news__btn {
+    min-height: 2.9rem;
+  }
+
+  .news__msg {
+    min-height: 1.5em;
+    font-size: 0.95rem;
+  }
+
+  .news__msg:empty {
+    min-height: 0;
+  }
+
+  .news--paper .news__row {
+    box-shadow: inset 0 0 0 2px var(--ink);
+  }
+
+  @media (max-width: 26rem) {
+    .news__row {
+      flex-direction: column;
+      border-radius: 1.4rem;
+    }
+
+    .news__input {
+      min-height: 3rem;
+    }
+  }
+</style>
+
+<script>
+  const forms = document.querySelectorAll<HTMLFormElement>('[data-newsletter]');
+  forms.forEach((form) => {
+    const input = form.querySelector<HTMLInputElement>('input[type=email]')!;
+    const msg = form.querySelector<HTMLElement>('.news__msg')!;
+    const btn = form.querySelector<HTMLButtonElement>('button')!;
+    const pending = form.querySelector<HTMLTemplateElement>('template[data-pending]')!;
+
+    input.addEventListener('input', () => {
+      if (input.getAttribute('aria-invalid')) {
+        input.removeAttribute('aria-invalid');
+        msg.textContent = '';
+      }
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!input.value.trim() || !input.validity.valid) {
+        input.setAttribute('aria-invalid', 'true');
+        msg.textContent = 'Confira o e-mail: ele precisa ter o formato nome@empresa.com.br.';
+        input.focus();
+        return;
+      }
+      const endpoint = form.dataset.endpoint;
+      if (!endpoint) {
+        msg.replaceChildren(pending.content.cloneNode(true));
+        return;
+      }
+      btn.disabled = true;
+      btn.textContent = 'Enviando…';
+      try {
+        const res = await fetch(endpoint, { method: 'POST', body: new FormData(form), mode: 'no-cors' });
+        if (res.type !== 'opaque' && !res.ok) throw new Error(String(res.status));
+        form.reset();
+        msg.textContent = 'Pronto! Você vai receber as próximas dicas no seu e-mail.';
+      } catch {
+        msg.textContent = 'Não conseguimos enviar agora. Tente de novo em instantes ou fale com a gente pelo WhatsApp.';
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Quero receber';
+      }
+    });
+  });
+</script>

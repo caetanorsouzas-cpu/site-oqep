@@ -1,0 +1,144 @@
+---
+// Faixa de escudos: logos de clientes como figurinhas, numa fileira que corre
+// sem parar. Com movimento reduzido, vira uma grade parada.
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import { clients } from '../data/site';
+
+const files = import.meta.glob<{ default: ImageMetadata }>('../assets/clientes/*.png', { eager: true });
+const crests = clients.map((c) => {
+  const mod = files[`../assets/clientes/${c.file}`];
+  if (!mod) throw new Error(`Logo não encontrado: src/assets/clientes/${c.file}`);
+  return { ...c, image: mod.default };
+});
+---
+
+<div class="crests">
+  <h3 class="crests__title title" id="crests-title">+75 empresas/profissionais atendidos</h3>
+
+  <ul class="crests__grid" role="list">
+    {
+      crests.map((c) => (
+        <li class="crest">
+          <Image src={c.image} alt={c.name} width={160} height={160} densities={[1, 2]} />
+        </li>
+      ))
+    }
+  </ul>
+
+  <div class="crests__marquee" aria-hidden="true">
+    {
+      [crests].map((row) => (
+        <div class="crests__track">
+          {[0, 1].map(() => (
+            <span class="crests__group">
+              {row.map((c) => (
+                <span class="crest">
+                  <Image src={c.image} alt="" width={160} height={160} densities={[1, 2]} />
+                </span>
+              ))}
+            </span>
+          ))}
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .crests {
+    margin-top: clamp(4rem, 8vw, 6.5rem);
+    padding-top: clamp(2.5rem, 5vw, 3.5rem);
+    border-top: 1px solid rgb(255 255 255 / 0.25);
+  }
+
+  .crests__title {
+    font-size: clamp(1.25rem, 2.2vw, 1.9rem);
+    line-height: 0.98;
+  }
+
+  .crest {
+    flex: none;
+    display: block;
+    width: clamp(5.5rem, 8vw, 7.5rem);
+    padding: 0.3rem;
+    border-radius: 50%;
+    background: var(--white);
+    box-shadow: var(--shadow-sticker);
+    rotate: var(--tilt, 0deg);
+    list-style: none;
+  }
+
+  .crest:nth-child(3n + 1) {
+    --tilt: -4deg;
+  }
+
+  .crest:nth-child(3n + 2) {
+    --tilt: 3deg;
+  }
+
+  .crest :global(img) {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    border-radius: 50%;
+  }
+
+  /* Static grid: the accessible list, and the whole view under reduced motion */
+  .crests__grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding: 0;
+  }
+
+  .crests__marquee {
+    display: none;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .crests__grid {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+      margin: 0;
+    }
+
+    .crests__marquee {
+      display: grid;
+      gap: 1.2rem;
+      margin-top: 1.6rem;
+      margin-inline: calc(-1 * var(--gutter));
+      padding-block: 0.8rem;
+      overflow: hidden;
+      -webkit-mask: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+      mask: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+    }
+
+    .crests__track {
+      display: flex;
+      width: max-content;
+      animation: crests-run 90s linear infinite;
+    }
+
+    .crests__group {
+      display: flex;
+      gap: 1.2rem;
+      padding-right: 1.2rem;
+    }
+
+    .crests__marquee:hover .crests__track {
+      animation-play-state: paused;
+    }
+  }
+
+  @keyframes crests-run {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+</style>

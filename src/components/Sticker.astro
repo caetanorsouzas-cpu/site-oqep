@@ -1,0 +1,103 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  image: ImageMetadata;
+  number: number;
+  name: string;
+  category: string;
+  sizes?: string;
+  loading?: 'lazy' | 'eager';
+  class?: string;
+}
+
+const { image, number, name, category, sizes = '(min-width: 64rem) 22vw, (min-width: 40rem) 45vw, 90vw', loading = 'lazy', class: className } = Astro.props;
+const num = String(number).padStart(2, '0');
+---
+
+<figure class:list={['sticker', className]}>
+  <div class="sticker__photo">
+    <Image src={image} alt={`${category}: ${name}`} widths={[360, 560, 820]} sizes={sizes} loading={loading} />
+  </div>
+  <figcaption class="sticker__plate">
+    <span class="sticker__num label">OQEP {num}</span>
+    <span class="sticker__name label">{name}</span>
+    <span class="sticker__cat label">{category}</span>
+  </figcaption>
+</figure>
+
+<style>
+  .sticker {
+    position: relative;
+    display: grid;
+    padding: 0.45rem 0.45rem 0;
+    background: var(--white);
+    border-radius: var(--radius-sticker);
+    box-shadow: var(--shadow-sticker);
+    color: var(--ink);
+    overflow: hidden;
+  }
+
+  /* gloss of the printed sticker */
+  .sticker::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background:
+      linear-gradient(115deg, transparent 35%, rgb(255 255 255 / 0.32) 48%, transparent 60%) var(--gloss, 100%) 0 / 250% 100%,
+      linear-gradient(160deg, rgb(255 255 255 / 0.22), transparent 38%);
+    background-repeat: no-repeat;
+    transition: background-position 0.8s var(--ease-out);
+    pointer-events: none;
+  }
+
+  .sticker__photo {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: calc(var(--radius-sticker) - 0.25rem);
+    background: var(--terra-deep);
+  }
+
+  .sticker__photo :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .sticker__plate {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 0.6rem;
+    align-items: baseline;
+    margin: 0.4rem -0.45rem 0;
+    padding: 0.5rem 0.65rem 0.6rem;
+    background: var(--ink);
+    color: var(--white);
+    line-height: 1.15;
+  }
+
+  .sticker__num {
+    grid-row: span 2;
+    align-self: center;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.3rem;
+    background: var(--terra);
+    color: var(--white);
+    font-size: 0.75rem;
+  }
+
+  .sticker__name {
+    font-size: 0.95rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .sticker__cat {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--foil);
+  }
+</style>
