@@ -737,9 +737,26 @@ let serviceNo = 0;
       grid-template-columns: 1fr;
     }
 
+    /* The hint gets its own row under the stickers instead of sitting on top of them */
     .stage {
-      min-height: 25rem;
+      min-height: 0;
+      grid-template-rows: 25rem auto;
       margin-top: 1rem;
+    }
+
+    .pack {
+      grid-area: 1 / 1;
+    }
+
+    .stage__fan,
+    .stage__drop {
+      bottom: auto;
+      height: 25rem;
+    }
+
+    .stage__hint {
+      position: static;
+      grid-row: 2;
     }
   }
 
@@ -1995,7 +2012,8 @@ let serviceNo = 0;
 
   function fanSpots() {
     const w = stage.clientWidth;
-    const sx = Math.min(w * 0.3, 190);
+    // the side columns keep a whole sticker inside the stage on narrow phones
+    const sx = Math.min(w * 0.3, 190, (w - 170) / 2);
     return [
       { x: -sx, y: -95, r: -12 },
       { x: sx * 0.95, y: -110, r: 9 },
