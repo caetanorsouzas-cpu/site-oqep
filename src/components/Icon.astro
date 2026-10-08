@@ -1,7 +1,7 @@
 ---
 // Ícones desenhados em um único traço (24px, stroke 2) para todo o site.
 interface Props {
-  name: 'whatsapp' | 'mail' | 'instagram' | 'arrow' | 'close' | 'check' | 'plus';
+  name: 'whatsapp' | 'mail' | 'instagram' | 'arrow' | 'close' | 'check' | 'plus' | 'menu';
   label?: string;
 }
 const { name, label } = Astro.props;
@@ -47,4 +47,5 @@ const { name, label } = Astro.props;
   {name === 'close' && <path d="M6 6l12 12M18 6L6 18" />}
   {name === 'check' && <path d="M5 12.5l4.5 4.5L19 7.5" />}
   {name === 'plus' && <path d="M12 5v14M5 12h14" />}
+  {name === 'menu' && <path d="M4 7h16M4 12h16M4 17h16" />}
 </svg>

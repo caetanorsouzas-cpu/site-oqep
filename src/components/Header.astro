@@ -23,7 +23,11 @@ const base = home ? '' : '/';
           <span class="top__desc">Agência de Comunicação e Marketing</span>
         </span>
       </a>
-      <nav class="top__nav" aria-label="Seções">
+      <button class="top__menu" type="button" aria-expanded="false" aria-controls="top-nav" aria-label="Abrir menu">
+        <span class="top__menu-open"><Icon name="menu" /></span>
+        <span class="top__menu-close"><Icon name="close" /></span>
+      </button>
+      <nav class="top__nav" id="top-nav" aria-label="Seções">
         <a href={`${base}#album`}>Trabalhos</a>
         <a href={`${base}#servicos`}>Serviços</a>
         <a href={`${base}#time`}>Time</a>
@@ -122,9 +126,75 @@ const base = home ? '' : '/';
     padding: 0.6rem 1.1rem;
   }
 
+  .top__menu {
+    display: none;
+  }
+
+  /* Phones and tablets: links fold into a panel under the strip */
   @media (max-width: 56rem) {
+    .top__in {
+      gap: 0.6rem;
+    }
+
+    .top__menu {
+      order: 3;
+      display: grid;
+      place-items: center;
+      width: 2.9rem;
+      height: 2.9rem;
+      padding: 0;
+      border: 1.5px solid rgb(255 255 255 / 0.5);
+      border-radius: 0.5rem;
+      background: transparent;
+      color: var(--white);
+      cursor: pointer;
+    }
+
+    .top__menu :global(svg) {
+      width: 1.4rem;
+      height: 1.4rem;
+    }
+
+    .top__menu-close,
+    .top[data-open] .top__menu-open {
+      display: none;
+    }
+
+    .top[data-open] .top__menu-close {
+      display: contents;
+    }
+
     .top__nav {
       display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      gap: 0;
+      padding: 0.4rem var(--gutter) 1rem;
+      background: var(--terra);
+      border-bottom: 1px solid rgb(255 255 255 / 0.16);
+      box-shadow: 0 1.2rem 1.6rem -0.8rem rgb(0 0 0 / 0.35);
+      font-size: 1.15rem;
+    }
+
+    .top[data-open] .top__nav {
+      display: flex;
+    }
+
+    .top__nav a {
+      padding-block: 0.85rem;
+      border-bottom: 1px solid rgb(255 255 255 / 0.16);
+      background: none;
+    }
+
+    .top__nav a:last-child {
+      border-bottom: 0;
+    }
+
+    .top__nav a[aria-current='page'] {
+      color: var(--foil);
     }
   }
 
@@ -143,7 +213,32 @@ const base = home ? '' : '/';
     }
   }
 
-  .top__nav a[aria-current='page'] {
-    background-size: 100% 2px;
+  @media (min-width: 56.01rem) {
+    .top__nav a[aria-current='page'] {
+      background-size: 100% 2px;
+    }
   }
 </style>
+
+<script>
+  const top = document.querySelector<HTMLElement>('.top')!;
+  const btn = top.querySelector<HTMLButtonElement>('.top__menu')!;
+
+  const setOpen = (open: boolean) => {
+    top.toggleAttribute('data-open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+  };
+
+  btn.addEventListener('click', () => setOpen(!top.hasAttribute('data-open')));
+  top.querySelectorAll('.top__nav a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && top.hasAttribute('data-open')) {
+      setOpen(false);
+      btn.focus();
+    }
+  });
+  document.addEventListener('click', (e) => {
+    if (!top.contains(e.target as Node)) setOpen(false);
+  });
+</script>
