@@ -4,6 +4,7 @@ description: "Recentemente, a Meta trouxe a Meta AI para o Brasil e está agitan
 date: 2024-10-15
 cover: "./cover.jpg"
 coverAlt: ""
+topics: ["Inteligência artificial", "Instagram e redes"]
 readingMinutes: 2
 wordpressUrl: "https://oqueeupostariamkt.com.br/ia-mudando-criacao-conteudo-conexao-instagram/"
 ---

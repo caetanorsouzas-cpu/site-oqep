@@ -4,6 +4,7 @@ description: "Sabe aquele momento em que você está respondendo um monte de men
 date: 2025-04-29
 cover: "./cover.jpeg"
 coverAlt: ""
+topics: ["Instagram e redes"]
 readingMinutes: 3
 wordpressUrl: "https://oqueeupostariamkt.com.br/automacao-de-mensagens-diretas-no-instagram-como-elas-podem-simplificar-sua-comunicacao-e-aumentar-o-engajamento/"
 ---

@@ -7,7 +7,7 @@ import Footer from '../../components/Footer.astro';
 import Newsletter from '../../components/Newsletter.astro';
 import Icon from '../../components/Icon.astro';
 import PostSticker from '../../components/PostSticker.astro';
-import { primaryContact } from '../../data/site';
+import { agency, primaryContact } from '../../data/site';
 import { formatDate, sortPosts } from '../../lib/blog';
 
 export async function getStaticPaths() {
@@ -67,6 +67,10 @@ const { title, description, date, cover, coverAlt, readingMinutes } = post.data;
                 <Icon name="whatsapp" /> Falar no WhatsApp
               </a>
             </div>
+            <a class="post-end__ig" href={agency.instagram} target="_blank" rel="noopener">
+              <Icon name="instagram" />
+              <span>Mais dicas no Instagram: <strong>{agency.instagramHandle}</strong></span>
+            </a>
           </aside>
         </div>
       </div>
@@ -262,6 +266,28 @@ const { title, description, date, cover, coverAlt, readingMinutes } = post.data;
     font-stretch: 108%;
     line-height: 1.2;
     margin-bottom: 0.9rem;
+  }
+
+  .post-end__ig {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid var(--paper-line);
+    font-size: 1.05rem;
+    text-decoration: none;
+  }
+
+  .post-end__ig :global(svg) {
+    flex: none;
+    width: 2.2rem;
+    height: 2.2rem;
+    color: var(--terra);
+  }
+
+  .post-end__ig:hover strong {
+    text-decoration: underline;
   }
 
   .post-end__talk {

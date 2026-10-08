@@ -4,6 +4,7 @@ description: "O Big Brother Brasil começou mais uma vez e, como sempre, passou 
 date: 2026-01-16
 cover: "./cover.jpg"
 coverAlt: ""
+topics: ["Marca e estratégia"]
 readingMinutes: 3
 wordpressUrl: "https://oqueeupostariamkt.com.br/o-que-o-bbb-nos-ensina-sobre-marketing-atencao-e-construcao-de-marca/"
 ---

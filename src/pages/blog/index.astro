@@ -6,9 +6,11 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Newsletter from '../../components/Newsletter.astro';
 import { formatDate, sortPosts } from '../../lib/blog';
+import { topics } from '../../lib/topics';
 
 const posts = sortPosts(await getCollection('blog'));
 const years = [...new Set(posts.map((p) => p.data.date.getUTCFullYear()))];
+const counts = topics.map((t) => ({ topic: t, count: posts.filter((p) => p.data.topics.includes(t)).length })).filter((t) => t.count);
 ---
 
 <Base
@@ -30,6 +32,20 @@ const years = [...new Set(posts.map((p) => p.data.date.getUTCFullYear()))];
 
     <section class="page page--paper blog-list" aria-label="Todos os posts">
       <div class="wrap">
+        <div class="filters" role="group" aria-label="Filtrar posts por tema" data-filters hidden>
+          <button type="button" class="filter" aria-pressed="true" data-topic="*">
+            Todos <span class="filter__n">{posts.length}</span>
+          </button>
+          {
+            counts.map((t) => (
+              <button type="button" class="filter" aria-pressed="false" data-topic={t.topic}>
+                {t.topic} <span class="filter__n">{t.count}</span>
+              </button>
+            ))
+          }
+        </div>
+        <p class="visually-hidden" role="status" aria-live="polite" data-filter-status></p>
+
         {
           years.map((year) => (
             <section class="year" aria-labelledby={`ano-${year}`}>
@@ -40,7 +56,7 @@ const years = [...new Set(posts.map((p) => p.data.date.getUTCFullYear()))];
                 {posts
                   .filter((p) => p.data.date.getUTCFullYear() === year)
                   .map((p) => (
-                    <li class="post">
+                    <li class="post" data-topics={p.data.topics.join('|')}>
                       <a class="post__link" href={`/blog/${p.id}/`}>
                         <span class="post__text">
                           <span class="post__meta label">
@@ -104,6 +120,54 @@ const years = [...new Set(posts.map((p) => p.data.date.getUTCFullYear()))];
 
   .blog-list .wrap {
     max-width: 62rem;
+  }
+
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: clamp(2rem, 4vw, 2.8rem);
+  }
+
+  .filters[hidden] {
+    display: none;
+  }
+
+  .filter {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.55rem 0.95rem;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    box-shadow: inset 0 0 0 1.5px var(--ink);
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+  }
+
+  .filter:hover {
+    background: rgb(0 0 0 / 0.06);
+  }
+
+  .filter[aria-pressed='true'] {
+    background: var(--terra);
+    color: var(--white);
+    box-shadow: none;
+  }
+
+  .filter__n {
+    font-variant-numeric: tabular-nums;
+    font-size: 0.8rem;
+    opacity: 0.7;
+  }
+
+  .year[hidden],
+  .post[hidden] {
+    display: none;
   }
 
   .year + .year {
@@ -200,3 +264,32 @@ const years = [...new Set(posts.map((p) => p.data.date.getUTCFullYear()))];
     }
   }
 </style>
+
+<script>
+  const bar = document.querySelector<HTMLElement>('[data-filters]')!;
+  const buttons = bar.querySelectorAll<HTMLButtonElement>('[data-topic]');
+  const status = document.querySelector<HTMLElement>('[data-filter-status]')!;
+  const posts = document.querySelectorAll<HTMLElement>('.post');
+  const years = document.querySelectorAll<HTMLElement>('.year');
+  bar.hidden = false;
+
+  function apply(topic: string, announce = true) {
+    buttons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.topic === topic)));
+    let shown = 0;
+    posts.forEach((p) => {
+      const match = topic === '*' || (p.dataset.topics ?? '').split('|').includes(topic);
+      p.hidden = !match;
+      if (match) shown += 1;
+    });
+    years.forEach((y) => (y.hidden = !y.querySelector('.post:not([hidden])')));
+    if (announce) status.textContent = topic === '*' ? `Mostrando todos os ${shown} posts` : `${shown} posts em ${topic}`;
+    const url = new URL(location.href);
+    if (topic === '*') url.searchParams.delete('tema');
+    else url.searchParams.set('tema', topic);
+    history.replaceState(null, '', url);
+  }
+
+  buttons.forEach((b) => b.addEventListener('click', () => apply(b.dataset.topic!)));
+  const initial = new URL(location.href).searchParams.get('tema');
+  if (initial && [...buttons].some((b) => b.dataset.topic === initial)) apply(initial, false);
+</script>

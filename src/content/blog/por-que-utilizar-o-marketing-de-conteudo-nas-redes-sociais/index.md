@@ -4,6 +4,7 @@ description: "O marketing de conteúdo é uma estratégia essencial para constru
 date: 2024-04-18
 cover: "./cover.jpg"
 coverAlt: ""
+topics: ["Marca e estratégia"]
 readingMinutes: 3
 wordpressUrl: "https://oqueeupostariamkt.com.br/por-que-utilizar-o-marketing-de-conteudo-nas-redes-sociais/"
 ---

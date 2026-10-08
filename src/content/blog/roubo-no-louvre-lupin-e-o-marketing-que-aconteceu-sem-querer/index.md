@@ -4,6 +4,7 @@ description: "Um dos assuntos mais comentados dos últimos dias não veio de uma
 date: 2025-10-24
 cover: "./cover.png"
 coverAlt: ""
+topics: ["Marca e estratégia"]
 readingMinutes: 2
 wordpressUrl: "https://oqueeupostariamkt.com.br/roubo-no-louvre-lupin-e-o-marketing-que-aconteceu-sem-querer/"
 ---

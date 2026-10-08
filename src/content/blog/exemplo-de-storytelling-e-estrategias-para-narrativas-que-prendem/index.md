@@ -4,6 +4,7 @@ description: "Neste conteúdo, você vai descobrir técnicas fundamentais para t
 date: 2025-05-06
 cover: "./cover.png"
 coverAlt: ""
+topics: ["Marca e estratégia"]
 readingMinutes: 3
 wordpressUrl: "https://oqueeupostariamkt.com.br/exemplo-de-storytelling-e-estrategias-para-narrativas-que-prendem/"
 ---

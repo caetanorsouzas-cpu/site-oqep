@@ -4,6 +4,7 @@ description: "Saiba por que o uso de hashtags perdeu força e como adaptar sua p
 date: 2025-05-28
 cover: "./cover.jpg"
 coverAlt: ""
+topics: ["Instagram e redes"]
 readingMinutes: 1
 wordpressUrl: "https://oqueeupostariamkt.com.br/chega-de-30-hashtags-o-instagram-mudou-e-sua-estrategia-tambem-precisa-mudar/"
 ---

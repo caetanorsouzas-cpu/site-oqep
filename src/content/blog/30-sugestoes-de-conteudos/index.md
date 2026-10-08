@@ -4,6 +4,7 @@ description: "Sabemos que postar diariamente pode esgotar as ideias, então que 
 date: 2024-10-01
 cover: "./cover.jpeg"
 coverAlt: ""
+topics: ["Instagram e redes"]
 readingMinutes: 5
 wordpressUrl: "https://oqueeupostariamkt.com.br/30-sugestoes-de-conteudos/"
 ---

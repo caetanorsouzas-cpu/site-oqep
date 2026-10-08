@@ -4,6 +4,7 @@ description: "Você já percebeu como, muitas vezes, alguém visita seu site ou 
 date: 2025-08-29
 cover: "./cover.jpg"
 coverAlt: ""
+topics: ["Vendas"]
 readingMinutes: 3
 wordpressUrl: "https://oqueeupostariamkt.com.br/remarketing-que-engaja-como-voltar-a-mente-do-cliente-e-acelerar-suas-vendas/"
 ---

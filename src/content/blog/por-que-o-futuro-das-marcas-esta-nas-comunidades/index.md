@@ -4,6 +4,7 @@ description: "Durante muito tempo, o sucesso de uma marca nas redes foi medido e
 date: 2025-11-14
 cover: "./cover.jpg"
 coverAlt: ""
+topics: ["Marca e estratégia"]
 readingMinutes: 3
 wordpressUrl: "https://oqueeupostariamkt.com.br/por-que-o-futuro-das-marcas-esta-nas-comunidades/"
 ---

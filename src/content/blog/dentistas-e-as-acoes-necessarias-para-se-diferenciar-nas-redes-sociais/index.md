@@ -4,6 +4,7 @@ description: "Ser dentista vai além de apenas tratar dentes; é sobre construir
 date: 2024-05-13
 cover: "./cover.jpg"
 coverAlt: ""
+topics: ["Para profissionais"]
 readingMinutes: 3
 wordpressUrl: "https://oqueeupostariamkt.com.br/dentistas-e-as-acoes-necessarias-para-se-diferenciar-nas-redes-sociais/"
 ---

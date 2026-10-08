@@ -4,6 +4,7 @@ description: "Ser nutricionista vai muito além de simplesmente prescrever plano
 date: 2024-04-02
 cover: "./cover.jpg"
 coverAlt: ""
+topics: ["Para profissionais"]
 readingMinutes: 6
 wordpressUrl: "https://oqueeupostariamkt.com.br/o-que-fazer-nas-redes-sociais-sendo-um-nutricionista/"
 ---

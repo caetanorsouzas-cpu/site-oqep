@@ -4,6 +4,7 @@ description: "Nos últimos anos, o feed das redes sociais deixou de ser um simpl
 date: 2025-09-18
 cover: "./cover.png"
 coverAlt: ""
+topics: ["Instagram e redes"]
 readingMinutes: 3
 wordpressUrl: "https://oqueeupostariamkt.com.br/humor-e-leveza-vendem-o-que-os-dados-mostram-sobre-redes-sociais-em-2025/"
 ---

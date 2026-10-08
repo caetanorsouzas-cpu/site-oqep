@@ -4,6 +4,7 @@ description: "Plataforma adota estratégia de compressão para vídeos com menor
 date: 2024-11-10
 cover: "./cover.webp"
 coverAlt: ""
+topics: ["Instagram e redes"]
 readingMinutes: 2
 wordpressUrl: "https://oqueeupostariamkt.com.br/instagram-admite-reduzir-qualidade-de-videos-pouco-assistidos/"
 ---

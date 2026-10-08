@@ -4,6 +4,7 @@ description: "Fechar vendas rapidamente não é uma questão de “sorte” ou d
 date: 2025-08-14
 cover: "./cover.jpg"
 coverAlt: ""
+topics: ["Vendas"]
 readingMinutes: 2
 wordpressUrl: "https://oqueeupostariamkt.com.br/por-que-alguns-fecham-vendas-rapido-e-a-sua-marca-nao/"
 ---

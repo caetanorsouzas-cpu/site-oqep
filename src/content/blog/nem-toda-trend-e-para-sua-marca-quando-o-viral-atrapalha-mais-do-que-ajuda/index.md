@@ -4,6 +4,7 @@ description: "Toda semana surge um novo viral. Pode ser um vídeo, um meme, uma 
 date: 2026-01-16
 cover: "./cover.jpg"
 coverAlt: ""
+topics: ["Instagram e redes", "Marca e estratégia"]
 readingMinutes: 3
 wordpressUrl: "https://oqueeupostariamkt.com.br/nem-toda-trend-e-para-sua-marca-quando-o-viral-atrapalha-mais-do-que-ajuda/"
 ---

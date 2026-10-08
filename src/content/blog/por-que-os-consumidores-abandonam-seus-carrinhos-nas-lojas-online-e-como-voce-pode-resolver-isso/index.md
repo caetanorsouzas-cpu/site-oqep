@@ -4,6 +4,7 @@ description: "O abandono de carrinho é um desafio para empreendedores no e-comm
 date: 2024-07-24
 cover: "./cover.jpg"
 coverAlt: ""
+topics: ["Vendas"]
 readingMinutes: 1
 wordpressUrl: "https://oqueeupostariamkt.com.br/por-que-os-consumidores-abandonam-seus-carrinhos-nas-lojas-online-e-como-voce-pode-resolver-isso/"
 ---

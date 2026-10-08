@@ -4,6 +4,7 @@ description: "Se existe algo que o mercado deixou claro nos últimos anos é que
 date: 2025-06-24
 cover: "./cover.jpg"
 coverAlt: ""
+topics: ["Marca e estratégia"]
 readingMinutes: 2
 wordpressUrl: "https://oqueeupostariamkt.com.br/93-dos-brasileiros-querem-marcas-com-impacto-real-e-a-sua-entrega-ou-so-promete/"
 ---

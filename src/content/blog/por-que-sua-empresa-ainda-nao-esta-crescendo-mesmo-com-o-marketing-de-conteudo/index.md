@@ -4,6 +4,7 @@ description: "Se o conteúdo é rei, por que tantas empresas ainda tratam essa f
 date: 2025-06-12
 cover: "./cover.png"
 coverAlt: ""
+topics: ["Marca e estratégia"]
 readingMinutes: 4
 wordpressUrl: "https://oqueeupostariamkt.com.br/por-que-sua-empresa-ainda-nao-esta-crescendo-mesmo-com-o-marketing-de-conteudo/"
 ---

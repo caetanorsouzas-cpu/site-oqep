@@ -4,6 +4,7 @@ description: "Vivemos numa era em que produtos e serviços se parecem cada vez m
 date: 2025-08-25
 cover: "./cover.png"
 coverAlt: ""
+topics: ["Marca e estratégia"]
 readingMinutes: 4
 wordpressUrl: "https://oqueeupostariamkt.com.br/em-um-mercado-saturado-por-que-a-conexao-emocional-e-o-verdadeiro-diferencial/"
 ---

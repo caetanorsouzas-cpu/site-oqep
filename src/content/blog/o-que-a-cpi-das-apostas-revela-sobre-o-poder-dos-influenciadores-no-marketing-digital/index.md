@@ -4,6 +4,7 @@ description: "Na última semana, o Brasil inteiro acompanhou os desdobramentos d
 date: 2025-05-15
 cover: "./cover.jpg"
 coverAlt: ""
+topics: ["Instagram e redes"]
 readingMinutes: 2
 wordpressUrl: "https://oqueeupostariamkt.com.br/o-que-a-cpi-das-apostas-revela-sobre-o-poder-dos-influenciadores-no-marketing-digital/"
 ---

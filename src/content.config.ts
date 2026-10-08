@@ -1,5 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
+import { topics } from './lib/topics';
 
 // Posts do blog: uma pasta por post em src/content/blog/<endereço>/ com index.md e a capa.
 const blog = defineCollection({
@@ -11,6 +12,7 @@ const blog = defineCollection({
       date: z.coerce.date(),
       cover: image().optional(),
       coverAlt: z.string().default(''),
+      topics: z.array(z.enum(topics)).default([]),
       readingMinutes: z.number().int().positive(),
       wordpressUrl: z.string().url().optional(),
     }),

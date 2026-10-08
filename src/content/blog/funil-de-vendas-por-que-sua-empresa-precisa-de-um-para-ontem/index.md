@@ -4,6 +4,7 @@ description: "Se você tem um negócio, já deve ter ouvido falar sobre funil de
 date: 2025-07-24
 cover: "./cover.jpeg"
 coverAlt: ""
+topics: ["Vendas"]
 readingMinutes: 2
 wordpressUrl: "https://oqueeupostariamkt.com.br/funil-de-vendas-por-que-sua-empresa-precisa-de-um-para-ontem/"
 ---

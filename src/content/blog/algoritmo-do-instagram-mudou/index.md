@@ -4,6 +4,7 @@ description: "Não é novidade que o Instagram está sempre em evolução e que,
 date: 2024-08-19
 cover: "./cover.png"
 coverAlt: ""
+topics: ["Instagram e redes"]
 readingMinutes: 2
 wordpressUrl: "https://oqueeupostariamkt.com.br/algoritmo-do-instagram-mudou/"
 ---

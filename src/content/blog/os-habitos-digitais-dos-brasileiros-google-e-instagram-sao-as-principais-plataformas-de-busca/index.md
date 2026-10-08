@@ -4,6 +4,7 @@ description: "A quinta edição da pesquisa State of Search, realizada pela Hedg
 date: 2024-11-22
 cover: "./cover.webp"
 coverAlt: ""
+topics: ["Instagram e redes"]
 readingMinutes: 4
 wordpressUrl: "https://oqueeupostariamkt.com.br/os-habitos-digitais-dos-brasileiros-google-e-instagram-sao-as-principais-plataformas-de-busca/"
 ---

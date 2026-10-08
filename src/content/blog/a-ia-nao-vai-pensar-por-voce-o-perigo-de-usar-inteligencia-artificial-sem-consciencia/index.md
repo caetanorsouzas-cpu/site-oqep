@@ -4,6 +4,7 @@ description: "Nos últimos tempos, a inteligência artificial virou a grande pro
 date: 2025-11-20
 cover: "./cover.png"
 coverAlt: ""
+topics: ["Inteligência artificial"]
 readingMinutes: 3
 wordpressUrl: "https://oqueeupostariamkt.com.br/a-ia-nao-vai-pensar-por-voce-o-perigo-de-usar-inteligencia-artificial-sem-consciencia/"
 ---

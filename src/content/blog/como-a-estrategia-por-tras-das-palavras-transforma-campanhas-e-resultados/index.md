@@ -4,6 +4,7 @@ description: "Algumas frases somem no meio do feed. Outras grudam na cabeça e f
 date: 2025-09-09
 cover: "./cover.jpg"
 coverAlt: ""
+topics: ["Marca e estratégia"]
 readingMinutes: 1
 wordpressUrl: "https://oqueeupostariamkt.com.br/como-a-estrategia-por-tras-das-palavras-transforma-campanhas-e-resultados/"
 ---

@@ -4,6 +4,7 @@ description: "Você já percebeu como é difícil confiar em algo ou alguém na 
 date: 2025-10-07
 cover: "./cover.jpg"
 coverAlt: ""
+topics: ["Vendas"]
 readingMinutes: 2
 wordpressUrl: "https://oqueeupostariamkt.com.br/prova-social-o-gatilho-que-faz-as-pessoas-comprarem-de-voce/"
 ---

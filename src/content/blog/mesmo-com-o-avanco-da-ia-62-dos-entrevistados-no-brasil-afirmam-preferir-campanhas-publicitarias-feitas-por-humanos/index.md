@@ -4,6 +4,7 @@ description: "A inteligência artificial continua evoluindo rapidamente e conqui
 date: 2025-07-03
 cover: "./cover.jpeg"
 coverAlt: ""
+topics: ["Inteligência artificial"]
 readingMinutes: 2
 wordpressUrl: "https://oqueeupostariamkt.com.br/mesmo-com-o-avanco-da-ia-62-dos-entrevistados-no-brasil-afirmam-preferir-campanhas-publicitarias-feitas-por-humanos/"
 ---

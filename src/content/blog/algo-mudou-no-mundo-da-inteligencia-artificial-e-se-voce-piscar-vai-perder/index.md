@@ -4,6 +4,7 @@ description: "Lembra como era antes? Você abria o ChatGPT, fazia uma pergunta�
 date: 2025-08-08
 cover: "./cover.jpeg"
 coverAlt: ""
+topics: ["Inteligência artificial"]
 readingMinutes: 2
 wordpressUrl: "https://oqueeupostariamkt.com.br/algo-mudou-no-mundo-da-inteligencia-artificial-e-se-voce-piscar-vai-perder/"
 ---

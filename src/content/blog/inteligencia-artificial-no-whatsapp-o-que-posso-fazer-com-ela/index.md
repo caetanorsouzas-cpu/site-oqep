@@ -4,6 +4,7 @@ description: "A Meta AI, a nova inteligência artificial da Meta, chegou recente
 date: 2024-10-23
 cover: "./cover.jpeg"
 coverAlt: ""
+topics: ["Inteligência artificial"]
 readingMinutes: 3
 wordpressUrl: "https://oqueeupostariamkt.com.br/inteligencia-artificial-no-whatsapp-o-que-posso-fazer-com-ela/"
 ---

@@ -4,6 +4,7 @@ description: "Em 2025, o cenário do marketing continuará a se transformar rapi
 date: 2024-11-01
 cover: "./cover.webp"
 coverAlt: ""
+topics: ["Marca e estratégia"]
 readingMinutes: 4
 wordpressUrl: "https://oqueeupostariamkt.com.br/tendencias-de-marketing-em-2025-o-que-as-marcas-devem-esperar/"
 ---

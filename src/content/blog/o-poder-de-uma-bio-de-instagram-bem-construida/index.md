@@ -2,6 +2,7 @@
 title: "O poder de uma bio de Instagram bem construída"
 description: "A bio do Instagram é a porta de entrada do seu perfil. Uma bio bem feita pode ser a diferença entre ganhar um novo seguidor ou ser ignorado. Pra que a sua bio não seja vaga, a gente separou algumas dicas que vão te…"
 date: 2024-07-23
+topics: ["Instagram e redes"]
 readingMinutes: 1
 wordpressUrl: "https://oqueeupostariamkt.com.br/o-poder-de-uma-bio-de-instagram-bem-construida/"
 ---

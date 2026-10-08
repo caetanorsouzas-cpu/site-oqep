@@ -4,6 +4,7 @@ description: "O mercado de pet shops tem experimentado um crescimento significat
 date: 2024-07-23
 cover: "./cover.jpg"
 coverAlt: ""
+topics: ["Para profissionais"]
 readingMinutes: 3
 wordpressUrl: "https://oqueeupostariamkt.com.br/quais-estrategias-vao-ajudar-a-destacar-o-seu-pet-shop-nas-redes-sociais/"
 ---

@@ -4,6 +4,7 @@ description: "O erro mais comum de quem cria conteúdo é acreditar que basta po
 date: 2025-10-15
 cover: "./cover.jpeg"
 coverAlt: ""
+topics: ["Instagram e redes", "Vendas"]
 readingMinutes: 3
 wordpressUrl: "https://oqueeupostariamkt.com.br/voce-nao-precisa-de-mais-seguidores-precisa-saber-conduzir-os-que-ja-tem/"
 ---

@@ -4,6 +4,7 @@ description: "Começar a divulgar o próprio trabalho nas redes sociais é uma d
 date: 2025-11-27
 cover: "./cover.jpeg"
 coverAlt: ""
+topics: ["Instagram e redes"]
 readingMinutes: 3
 wordpressUrl: "https://oqueeupostariamkt.com.br/comecar-nas-redes-sociais-o-que-voce-precisa-saber-antes-de-dar-o-primeiro-passo/"
 ---
