@@ -8,11 +8,12 @@
   --terra: #ae361b;
   --terra-deep: #922b13;
   --terra-dark: #5c1a0a;
-  --terra-tint: #f6d6cb;
+  /* the cream of the agency's Instagram covers: secondary text on terracotta */
+  --cream: #f5e3c1;
   --ink: #17110e;
   --ink-soft: #4a3a33;
-  --paper: #f4f1eb;
-  --paper-line: #ddd5c8;
+  --paper: #f5e3c1;
+  --paper-line: #dec69b;
   --white: #ffffff;
   --foil: #f2c230;
   --foil-deep: #c9971a;
@@ -125,7 +126,7 @@ input {
 }
 
 html {
-  scrollbar-color: var(--terra-dark) var(--terra-tint);
+  scrollbar-color: var(--terra-dark) var(--cream);
 }
 
 .visually-hidden {

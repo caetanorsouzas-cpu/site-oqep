@@ -5,13 +5,13 @@ colors:
   terra: "#ae361b"
   terra-deep: "#922b13"
   terra-dark: "#5c1a0a"
-  terra-tint: "#f6d6cb"
+  cream: "#f5e3c1"
   foil: "#f2c230"
   foil-deep: "#c9971a"
   ink: "#17110e"
   ink-soft: "#4a3a33"
-  paper: "#f4f1eb"
-  paper-line: "#ddd5c8"
+  paper: "#f5e3c1"
+  paper-line: "#dec69b"
   white: "#ffffff"
 typography:
   display:
@@ -140,7 +140,7 @@ A single warm hue at three depths, a paper neutral, an ink near-black and one fo
 - **Album Terracotta** (terra): the logo color. The body ground, the hero cover, the album and testimonial pages, the header strip, sticker number chips, checklist numerals and accent titles on paper. Binding brand color; never shifted.
 - **Print-Shadow Terracotta** (terra-deep): the empty album slot well and the sticker image well behind photos. Reads as the page's printed recess.
 - **Binding Terracotta** (terra-dark): the team page and footer ground, the scrollbar thumb, and secondary text on the foil sticker.
-- **Terracotta Tint** (terra-tint): secondary text on terracotta grounds (descriptors, sub-lines, contact band text) and the scrollbar track.
+- **Instagram Cream** (cream): the cream of the agency's Instagram covers (2026-10-08): secondary text on terracotta grounds (descriptors, sub-lines, contact band text) and the scrollbar track.
 
 ### Secondary
 - **Sticker Foil** (foil): the one shiny sticker, primary buttons, the focus outline, text selection, the found-slot ring and category text on ink plates.
@@ -149,7 +149,7 @@ A single warm hue at three depths, a paper neutral, an ink near-black and one fo
 ### Neutral
 - **Plate Ink** (ink): sticker name plates, body text on paper, the ink button, checklist check-square strokes.
 - **Soft Ink** (ink-soft): secondary body copy on paper and white (service descriptions, testimonial full text, contact copy).
-- **Album Paper** (paper): the checklist and contact page ground.
+- **Album Paper** (paper): the checklist and contact page ground, in the Instagram cream itself (#f5e3c1).
 - **Ruled Line** (paper-line): dividers between checklist rows and inside quote cards.
 - **Sticker White** (white): sticker borders, quote cards, the newsletter field, text on terracotta and ink.
 
@@ -223,7 +223,7 @@ Tactile, rounded and confident.
 - **Filter chips:** pill, white at 10% ground with a 1.5px white-at-50% inset ring, white 700 text. Hover raises the ground to 20%. Pressed (aria-pressed) flips to white ground with terracotta text.
 
 ### Cards / Containers
-- **Quote cards:** white, 1rem corners, sticker-rest shadow, fluid padding clamp(1.5rem, 3vw, 2.4rem), tilted about 1deg, a ruled paper-line divider above the attribution.
+- **Quote cards:** cream (the Instagram cream), 1rem corners, sticker-rest shadow, fluid padding clamp(1.5rem, 3vw, 2.4rem), tilted about 1deg, a ruled paper-line divider above the attribution.
 - **Checklist panel (paper pages):** white, 1rem corners, padding clamp(1.4rem, 3vw, 2.4rem), holding a multi-column list of strategy deliverables.
 
 ### Inputs / Fields
@@ -257,7 +257,7 @@ A 5:7 foil wrapper printed with the logo, crimped edges, leaning at -7deg with a
 
 ### Do:
 - **Do** present work, people and clients as numbered stickers ("OQEP nn") with an ink plate in condensed caps.
-- **Do** keep terracotta (#ae361b) as the page ground for collection pages and switch to paper (#f4f1eb) for dense lists and contact.
+- **Do** keep terracotta (#ae361b) as the page ground for collection pages and switch to paper (#f5e3c1) for dense lists and contact.
 - **Do** use the slab caps for page titles and the condensed caps for anything printed on a sticker or slot.
 - **Do** reserve the spring easing for stickers and use the exponential ease-out for every other transition.
 - **Do** use black-alpha shadows from the sticker-rest / sticker-lift vocabulary.

@@ -49,10 +49,10 @@
           "#fdece8"
         ]
       },
-      "terra-tint": {
+      "cream": {
         "role": "primary",
         "displayName": "Terracotta Tint",
-        "canonical": "#f6d6cb",
+        "canonical": "#f5e3c1",
         "tonalRamp": [
           "#41190b",
           "#712b14",
@@ -127,7 +127,7 @@
       "paper": {
         "role": "neutral",
         "displayName": "Album Paper",
-        "canonical": "#f4f1eb",
+        "canonical": "#f5e3c1",
         "tonalRamp": [
           "#312a1b",
           "#56492f",
@@ -142,7 +142,7 @@
       "paper-line": {
         "role": "neutral",
         "displayName": "Ruled Line",
-        "canonical": "#ddd5c8",
+        "canonical": "#dec69b",
         "tonalRamp": [
           "#2f281d",
           "#524633",
@@ -334,7 +334,7 @@
       "refersTo": "quote-card",
       "description": "White testimonial card, tilted, terracotta highlight line.",
       "html": "<div style=\"background:#ae361b;padding:2rem\"><figure class=\"ds-quote\"><p class=\"ds-quote-hi\">\"…nos mostrando o que realmente traz resultados.\"</p><figcaption><span class=\"ds-quote-name\">Stephanie Matos</span></figcaption></figure></div>",
-      "css": ".ds-quote{display:grid;gap:1.2rem;margin:0;max-width:28rem;padding:clamp(1.5rem,3vw,2.4rem);background:#fff;color:#17110e;border-radius:1rem;box-shadow:0 .15rem .3rem rgb(0 0 0/.25),0 .9rem 1.6rem -.4rem rgb(0 0 0/.35);rotate:-1deg;font-family:'Figtree Variable','Figtree',system-ui,sans-serif}.ds-quote-hi{margin:0;font-size:clamp(1.45rem,2.4vw,2rem);font-weight:900;font-family:'Alfa Slab One','Rockwell',Georgia,serif;font-synthesis:none;line-height:1.12;color:#ae361b}.ds-quote figcaption{padding-top:1rem;border-top:1px solid #ddd5c8}.ds-quote-name{font-family:'Barlow Condensed','Arial Narrow',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:1.05rem}"
+      "css": ".ds-quote{display:grid;gap:1.2rem;margin:0;max-width:28rem;padding:clamp(1.5rem,3vw,2.4rem);background:#fff;color:#17110e;border-radius:1rem;box-shadow:0 .15rem .3rem rgb(0 0 0/.25),0 .9rem 1.6rem -.4rem rgb(0 0 0/.35);rotate:-1deg;font-family:'Figtree Variable','Figtree',system-ui,sans-serif}.ds-quote-hi{margin:0;font-size:clamp(1.45rem,2.4vw,2rem);font-weight:900;font-family:'Alfa Slab One','Rockwell',Georgia,serif;font-synthesis:none;line-height:1.12;color:#ae361b}.ds-quote figcaption{padding-top:1rem;border-top:1px solid #dec69b}.ds-quote-name{font-family:'Barlow Condensed','Arial Narrow',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:1.05rem}"
     }
   ],
   "narrative": {
@@ -381,7 +381,7 @@
     ],
     "dos": [
       "Do present work, people and clients as numbered stickers (\"OQEP nn\") with an ink plate in condensed caps.",
-      "Do keep terracotta (#ae361b) as the page ground for collection pages and switch to paper (#f4f1eb) for dense lists and contact.",
+      "Do keep terracotta (#ae361b) as the page ground for collection pages and switch to paper (#f5e3c1) for dense lists and contact.",
       "Do use the wide 125% black caps for page titles and the 72% condensed caps for anything printed on a sticker or slot.",
       "Do reserve the spring easing for stickers and use the exponential ease-out for every other transition.",
       "Do use black-alpha shadows from the sticker-rest / sticker-lift vocabulary.",
