@@ -176,6 +176,8 @@ A single warm hue at three depths, a paper neutral, an ink near-black and one fo
 ### Named Rules
 **The Three Voices Rule.** Headlines are slab, plates are condensed, everything you read or press is Figtree. Each face has one job; do not add a fourth or swap their roles.
 
+**The Handwritten Exception.** One title on the home, "Feedbacks", is centered and hand-lettered in Permanent Marker (loaded only on the home), as if written on the album page. It is the only centered title and the only marker text; do not spread it.
+
 **The Plate Voice Rule.** Condensed caps label a thing that exists (a sticker, a slot, a stat, a list group). They are not used as decorative lines above section titles.
 
 ## Layout
@@ -266,5 +268,5 @@ A 5:7 foil wrapper printed with the logo, crimped edges, leaning at -7deg with a
 - **Don't** put condensed-caps kicker lines above section titles; labels name objects, not sections.
 - **Don't** tint shadows with terracotta or ink.
 - **Don't** apply spring or overshoot motion to buttons, links, cards or page sections.
-- **Don't** add a fourth typeface, fake-bold the slab, or set long body copy in it.
+- **Don't** add another typeface beyond the three voices and the one handwritten "Feedbacks" title, fake-bold the slab, or set long body copy in it.
 - **Don't** shift the terracotta hue away from the logo color.
