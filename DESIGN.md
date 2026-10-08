@@ -15,37 +15,34 @@ colors:
   white: "#ffffff"
 typography:
   display:
-    fontFamily: "'Archivo Variable', 'Archivo', system-ui, sans-serif"
+    fontFamily: "'Alfa Slab One', 'Rockwell', Georgia, serif"
     fontSize: "clamp(2.9rem, 7.2vw, 7rem)"
-    fontWeight: 900
-    lineHeight: 0.92
-    letterSpacing: "-0.03em"
-    fontVariation: "'wdth' 125"
-  headline:
-    fontFamily: "'Archivo Variable', 'Archivo', system-ui, sans-serif"
-    fontSize: "clamp(2.4rem, 6vw, 5.4rem)"
-    fontWeight: 900
+    fontWeight: 400
     lineHeight: 0.92
     letterSpacing: "-0.02em"
-    fontVariation: "'wdth' 125"
+  headline:
+    fontFamily: "'Alfa Slab One', 'Rockwell', Georgia, serif"
+    fontSize: "clamp(2.4rem, 6vw, 5.4rem)"
+    fontWeight: 400
+    lineHeight: 0.92
+    letterSpacing: "-0.02em"
   title:
-    fontFamily: "'Archivo Variable', 'Archivo', system-ui, sans-serif"
+    fontFamily: "'Figtree Variable', 'Figtree', system-ui, sans-serif"
     fontSize: "clamp(1.35rem, 2.3vw, 1.9rem)"
     fontWeight: 800
     lineHeight: 1.2
   body:
-    fontFamily: "'Archivo Variable', 'Archivo', system-ui, sans-serif"
+    fontFamily: "'Figtree Variable', 'Figtree', system-ui, sans-serif"
     fontSize: "1.0625rem"
     fontWeight: 400
     lineHeight: 1.55
   label:
-    fontFamily: "'Archivo Variable', 'Archivo', system-ui, sans-serif"
+    fontFamily: "'Barlow Condensed', 'Arial Narrow', sans-serif"
     fontSize: "0.75rem"
     fontWeight: 700
     lineHeight: 1.15
-    letterSpacing: "0.04em"
+    letterSpacing: "0.03em"
     fontFeature: "'tnum' 1"
-    fontVariation: "'wdth' 72"
 rounded:
   check: "0.2rem"
   chip: "0.3rem"
@@ -124,7 +121,7 @@ components:
 
 The agency is a sticker album you complete. Pages are printed in the logo's terracotta with a faint print grain; work, team and clients are figurinhas with a number, a name and a category, stuck onto the page with a slight tilt. The home is the album's opening spread: cover, collection pages, a printed checklist, the one shiny sticker, and the contact stickers of real people.
 
-Density follows the album. Collection pages are generous grids of uniform stickers on terracotta; checklist pages switch to paper and carry dense, numbered lists with printed check squares. Titles speak in the agency's own portfolio voice: wide, heavy, uppercase. Everything that is "printed on the sticker" speaks in condensed caps.
+Density follows the album. Collection pages are generous grids of uniform stickers on terracotta; checklist pages switch to paper and carry dense, numbered lists with printed check squares. Titles speak like a newsstand headline: heavy slab caps, a nod to the founder's journalism roots. Everything that is "printed on the sticker" speaks in condensed caps.
 
 Motion belongs to the stickers. They drop, spring out of the torn pack and get glued into slots with overshoot; every other surface moves on a calm exponential ease-out. Reduced motion removes the theatre and keeps the content.
 
@@ -132,7 +129,7 @@ Motion belongs to the stickers. They drop, spring out of the torn pack and get g
 - Terracotta album pages (#ae361b family) alternating with paper checklist pages and a dark-terracotta page for the team and footer.
 - White-bordered, rounded stickers with an ink name plate, a terracotta "OQEP nn" number chip and a foil category.
 - One foil "brilhante" sticker per album; foil otherwise only on primary actions, focus, selection and found-state rings.
-- One family, Archivo variable, stretched wide for titles and condensed for labels.
+- Three faces with one job each: Alfa Slab One newsstand headlines, Barlow Condensed plate caps, Figtree for reading.
 - Spring motion on stickers only; neutral black-alpha shadows.
 
 ## Colors
@@ -163,20 +160,21 @@ A single warm hue at three depths, a paper neutral, an ink near-black and one fo
 
 ## Typography
 
-**Display Font:** Archivo Variable (with Archivo, system-ui, sans-serif), self-hosted via @fontsource-variable.
-**Label Font:** the same family at a condensed width.
+**Display Font:** Alfa Slab One (with Rockwell, Georgia, serif), self-hosted via @fontsource. One weight (400), never synthesized.
+**Label Font:** Barlow Condensed 600/700 (with Arial Narrow, sans-serif), self-hosted via @fontsource.
+**Body Font:** Figtree Variable (with system-ui, sans-serif), self-hosted via @fontsource-variable.
 
-**Character:** One grotesque pulled to both ends of its width axis. Extended black caps carry the portfolio PDF's poster voice; condensed bold caps read like the printed plate of a sticker.
+**Character:** The newsstand. Fat slab caps read like a newspaper or magazine headline (the agency was founded by a journalist); condensed bold caps read like the printed plate of a sticker; Figtree keeps long reading friendly and modern. Chosen by the client on 2026-10-08 over a wide rounded poster sans and a soft editorial serif.
 
 ### Hierarchy
-- **Display** (900, width 125%, clamp(2.9rem, 7.2vw, 7rem), line-height 0.92, uppercase): the hero question only.
-- **Headline** (900, width 125%, clamp(2.4rem, 6vw, 5.4rem), line-height 0.92, uppercase, balanced): section titles. One- or two-word page names ("O álbum", "O time") may run up to clamp(3rem, 10vw, 8rem).
-- **Title** (800, clamp(1.35rem, 2.3vw, 1.9rem), line-height 1.2): the hero answer and lead statements, max about 26ch. Testimonial highlights use 900 at width 108% in terracotta; phase and founder sub-titles use widths 108-112%.
+- **Display** (Alfa Slab One, clamp(2.9rem, 7.2vw, 7rem), line-height 0.92, uppercase): the hero question only.
+- **Headline** (Alfa Slab One, clamp(2.4rem, 6vw, 5.4rem), line-height 0.92, uppercase, balanced): section titles. The slab also carries phase titles, empty-slot numbers, the facts row, testimonial highlights and blog post titles (sentence case there). One- or two-word page names ("O álbum", "O time") may run up to clamp(3rem, 10vw, 8rem).
+- **Title** (800, clamp(1.35rem, 2.3vw, 1.9rem), line-height 1.2): the hero answer and lead statements, max about 26ch. Founder intro and blog subheads stay in Figtree 800-900.
 - **Body** (400, 1.0625rem, line-height 1.55): running copy, 44-50ch on paper and terracotta. Secondary copy steps down to 0.95rem at line-height 1.45.
-- **Label** (700, width 72%, 0.72-1.2rem, letter-spacing 0.04em, uppercase, tabular numerals): sticker numbers, names and categories, checklist group titles, stat terms, person plates, the wordmark in the header.
+- **Label** (Barlow Condensed 700, 0.72-1.2rem, letter-spacing 0.03em, uppercase, tabular numerals): sticker numbers, names and categories, checklist group titles, stat terms, person plates, the wordmark in the header.
 
 ### Named Rules
-**The Two Widths Rule.** Titles are wide (125%), plates are condensed (72%). Body and buttons stay at normal width (100%). Do not introduce a second family; change the width axis instead.
+**The Three Voices Rule.** Headlines are slab, plates are condensed, everything you read or press is Figtree. Each face has one job; do not add a fourth or swap their roles.
 
 **The Plate Voice Rule.** Condensed caps label a thing that exists (a sticker, a slot, a stat, a list group). They are not used as decorative lines above section titles.
 
@@ -184,7 +182,7 @@ A single warm hue at three depths, a paper neutral, an ink near-black and one fo
 
 Pages are full-bleed bands; content sits in a centered wrap of min(100% - 2 x gutter, 88rem) with a fluid gutter of clamp(1rem, 4vw, 3rem). Sections breathe with clamp(4rem, 9vw, 8rem) vertical padding; the hero is tighter on top so the next page's edge shows at the fold.
 
-Collection pages use auto-fill sticker grids (minmax(min(100%, 15.5rem), 1fr) for portfolio slots, 17.5rem for contact stickers) with gaps of clamp(1rem, 2.2vw, 1.8rem). Two-column compositions (hero 1.35fr/1fr, founder 4fr/7fr, services head/list) collapse to one column at 56rem; testimonials stack at 48rem. The header nav hides below 56rem; service descriptions become disclosure rows below 40rem; the newsletter field stacks below 26rem.
+Collection pages use auto-fill sticker grids (minmax(min(100%, 15.5rem), 1fr) for portfolio slots, 17.5rem for contact stickers) with gaps of clamp(1rem, 2.2vw, 1.8rem). Two-column compositions (hero 1.35fr/1fr, founder 4fr/7fr, services head/list) collapse to one column at 56rem; testimonials stack at 48rem. Below 56rem the header links fold into a menu button panel; service descriptions become disclosure rows below 40rem; the newsletter field stacks below 26rem.
 
 Stickers sit at small, rhythmic tilts (between -1.2deg and 1.2deg, set per nth-child) and straighten on hover. Larger hero-only tilts (up to 14deg) belong to the fanned pack.
 
@@ -232,7 +230,7 @@ Tactile, rounded and confident.
 - **Error:** 2px terracotta outline plus a polite live message below the row.
 
 ### Navigation
-- **Header strip:** sticky terracotta bar, 4.25rem tall, 1px white-at-16% bottom rule. Logo circle with white ring and condensed wordmark left; 700-weight links with a 2px underline that grows from the left on hover (0.3s ease-out); foil WhatsApp button right. Below 56rem the links hide; below 30rem the button collapses to its icon.
+- **Header strip:** sticky terracotta bar, 4.25rem tall, 1px white-at-16% bottom rule. Logo circle with white ring and condensed wordmark left; 700-weight links with a 2px underline that grows from the left on hover (0.3s ease-out); foil WhatsApp button right. Below 56rem the links fold into a panel opened by a menu button (closes on link, outside tap or Escape); below 30rem the WhatsApp button collapses to its icon.
 
 ### Sticker (signature)
 The unit of the whole system.
@@ -258,7 +256,7 @@ A 5:7 foil wrapper printed with the logo, crimped edges, leaning at -7deg with a
 ### Do:
 - **Do** present work, people and clients as numbered stickers ("OQEP nn") with an ink plate in condensed caps.
 - **Do** keep terracotta (#ae361b) as the page ground for collection pages and switch to paper (#f4f1eb) for dense lists and contact.
-- **Do** use the wide 125% black caps for page titles and the 72% condensed caps for anything printed on a sticker or slot.
+- **Do** use the slab caps for page titles and the condensed caps for anything printed on a sticker or slot.
 - **Do** reserve the spring easing for stickers and use the exponential ease-out for every other transition.
 - **Do** use black-alpha shadows from the sticker-rest / sticker-lift vocabulary.
 - **Do** keep every control a pill and every focus state a 3px foil outline.
@@ -268,5 +266,5 @@ A 5:7 foil wrapper printed with the logo, crimped edges, leaning at -7deg with a
 - **Don't** put condensed-caps kicker lines above section titles; labels name objects, not sections.
 - **Don't** tint shadows with terracotta or ink.
 - **Don't** apply spring or overshoot motion to buttons, links, cards or page sections.
-- **Don't** introduce a second typeface; vary Archivo's width and weight.
+- **Don't** add a fourth typeface, fake-bold the slab, or set long body copy in it.
 - **Don't** shift the terracotta hue away from the logo color.

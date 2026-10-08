@@ -1,4 +1,7 @@
-@import '@fontsource-variable/archivo/standard.css';
+@import '@fontsource/alfa-slab-one/400.css';
+@import '@fontsource/barlow-condensed/600.css';
+@import '@fontsource/barlow-condensed/700.css';
+@import '@fontsource-variable/figtree/wght.css';
 
 :root {
   /* Album page inks */
@@ -14,7 +17,10 @@
   --foil: #f2c230;
   --foil-deep: #c9971a;
 
-  --font: 'Archivo Variable', 'Archivo', system-ui, sans-serif;
+  /* Newsstand: slab headlines, condensed plate caps, a clean grotesque for reading */
+  --font: 'Figtree Variable', 'Figtree', system-ui, sans-serif;
+  --font-display: 'Alfa Slab One', 'Rockwell', Georgia, serif;
+  --font-label: 'Barlow Condensed', 'Arial Narrow', sans-serif;
 
   --gutter: clamp(1rem, 4vw, 3rem);
   --max: 88rem;
@@ -136,10 +142,10 @@ html {
   margin-inline: auto;
 }
 
-/* Page titles: the portfolio PDF's wide heavy caps */
+/* Page titles: heavy slab caps, like a newsstand headline */
 .title {
-  font-stretch: 125%;
-  font-weight: 900;
+  font-family: var(--font-display);
+  font-weight: 400;
   text-transform: uppercase;
   line-height: 0.92;
   letter-spacing: -0.02em;
@@ -148,10 +154,10 @@ html {
 
 /* Name bars and labels: condensed caps, like a sticker's printed plate */
 .label {
-  font-stretch: 72%;
+  font-family: var(--font-label);
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   font-variant-numeric: tabular-nums;
 }
 
@@ -202,7 +208,6 @@ html {
   padding: 0.85rem 1.4rem;
   border: 0;
   border-radius: 999px;
-  font-stretch: 100%;
   font-weight: 800;
   font-size: 1rem;
   line-height: 1.1;
