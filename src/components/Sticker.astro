@@ -32,7 +32,9 @@ const num = String(number).padStart(2, '0');
     position: relative;
     display: grid;
     padding: 0.45rem 0.45rem 0;
-    background: var(--white);
+    /* ink at the very bottom, so no white hairline shows under the plate
+       on the tilted, rounded edge */
+    background: linear-gradient(var(--white) calc(100% - 1rem), var(--ink) 0);
     border-radius: var(--radius-sticker);
     box-shadow: var(--shadow-sticker);
     color: var(--ink);
@@ -74,6 +76,7 @@ const num = String(number).padStart(2, '0');
     margin: 0.4rem -0.45rem 0;
     padding: 0.5rem 0.65rem 0.6rem;
     background: var(--ink);
+    border-radius: 0 0 var(--radius-sticker) var(--radius-sticker);
     color: var(--white);
     line-height: 1.15;
   }

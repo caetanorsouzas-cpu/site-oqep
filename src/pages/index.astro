@@ -604,7 +604,7 @@ const fan = ['mk10', 'mk07', 'mk05'].map((f) => works.find((w) => w.file.startsW
     padding: 0.35rem 0.35rem 0;
     border: 0;
     border-radius: var(--radius-sticker);
-    background: var(--white);
+    background: linear-gradient(var(--white) calc(100% - 1rem), var(--ink) 0);
     color: var(--ink);
     box-shadow: var(--shadow-sticker);
     text-align: left;
@@ -632,6 +632,7 @@ const fan = ['mk10', 'mk07', 'mk05'].map((f) => works.find((w) => w.file.startsW
     margin: 0.35rem -0.35rem 0;
     padding: 0.45rem 0.55rem 0.5rem;
     background: var(--ink);
+    border-radius: 0 0 var(--radius-sticker) var(--radius-sticker);
     color: var(--white);
     line-height: 1.15;
   }
@@ -1365,7 +1366,8 @@ const fan = ['mk10', 'mk07', 'mk05'].map((f) => works.find((w) => w.file.startsW
   .person__sticker {
     padding: 0.45rem 0.45rem 0;
     border-radius: var(--radius-sticker);
-    background: var(--white);
+    /* ink at the very bottom, so no white hairline shows under the plate */
+    background: linear-gradient(var(--white) calc(100% - 1rem), var(--ink) 0);
     box-shadow: var(--shadow-sticker);
     overflow: hidden;
     rotate: var(--tilt, 0deg);
@@ -1393,6 +1395,7 @@ const fan = ['mk10', 'mk07', 'mk05'].map((f) => works.find((w) => w.file.startsW
     margin: 0 -0.45rem 0;
     padding: 0.55rem 0.75rem 0.65rem;
     background: var(--ink);
+    border-radius: 0 0 var(--radius-sticker) var(--radius-sticker);
     color: var(--white);
     line-height: 1.15;
   }

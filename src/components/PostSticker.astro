@@ -31,7 +31,8 @@ const { title, date, cover, readingMinutes } = post.data;
     height: 100%;
     padding: 0.45rem 0.45rem 0;
     border-radius: var(--radius-sticker);
-    background: var(--white);
+    /* ink at the very bottom, so no white hairline shows under the plate */
+    background: linear-gradient(var(--white) calc(100% - 1rem), var(--ink) 0);
     color: var(--ink);
     text-decoration: none;
     box-shadow: var(--shadow-sticker);
@@ -71,6 +72,7 @@ const { title, date, cover, readingMinutes } = post.data;
     margin: 0.45rem -0.45rem 0;
     padding: 0.7rem 0.8rem 0.9rem;
     background: var(--ink);
+    border-radius: 0 0 var(--radius-sticker) var(--radius-sticker);
     color: var(--white);
   }
 
