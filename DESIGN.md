@@ -26,6 +26,17 @@ typography:
     fontWeight: 400
     lineHeight: 0.92
     letterSpacing: "-0.02em"
+  headline-compact:
+    fontFamily: "'Alfa Slab One', 'Rockwell', Georgia, serif"
+    fontSize: "clamp(1.7rem, 3vw, 3rem)"
+    fontWeight: 400
+    lineHeight: 1.1
+    letterSpacing: "-0.02em"
+  stat:
+    fontFamily: "'Alfa Slab One', 'Rockwell', Georgia, serif"
+    fontSize: "clamp(3.8rem, 8.5vw, 7rem)"
+    fontWeight: 400
+    lineHeight: 0.8
   title:
     fontFamily: "'Figtree Variable', 'Figtree', system-ui, sans-serif"
     fontSize: "clamp(1.35rem, 2.3vw, 1.9rem)"
@@ -36,6 +47,11 @@ typography:
     fontSize: "1.0625rem"
     fontWeight: 400
     lineHeight: 1.55
+  body-small:
+    fontFamily: "'Figtree Variable', 'Figtree', system-ui, sans-serif"
+    fontSize: "0.95rem"
+    fontWeight: 400
+    lineHeight: 1.45
   label:
     fontFamily: "'Barlow Condensed', 'Arial Narrow', sans-serif"
     fontSize: "0.75rem"
@@ -45,6 +61,7 @@ typography:
     fontFeature: "'tnum' 1"
 rounded:
   check: "0.2rem"
+  well: "0.25rem"
   chip: "0.3rem"
   sticker: "0.6rem"
   card: "1rem"
@@ -53,6 +70,7 @@ spacing:
   gutter: "clamp(1rem, 4vw, 3rem)"
   max: "88rem"
   section: "clamp(4rem, 9vw, 8rem)"
+  section-compact: "clamp(3.5rem, 7vw, 6rem)"
   sticker-border: "0.45rem"
 components:
   button-foil:
@@ -111,6 +129,16 @@ components:
     textColor: "{colors.ink}"
     rounded: "{rounded.card}"
     padding: "clamp(1.5rem, 3vw, 2.4rem)"
+  agency-sticker:
+    backgroundColor: "{colors.white}"
+    textColor: "{colors.ink-soft}"
+    rounded: "{rounded.sticker}"
+    padding: "clamp(1.1rem, 2vw, 1.6rem)"
+  checklist-tag:
+    backgroundColor: "{colors.cream}"
+    textColor: "{colors.terra-deep}"
+    typography: "{typography.label}"
+    padding: "0.2rem 0.55rem 0.25rem"
 ---
 
 # Design System: O Que Eu Postaria?
@@ -119,7 +147,7 @@ components:
 
 **Creative North Star: "Álbum de Figurinhas"**
 
-The agency is a sticker album, opened already complete (2026-10-11: every slot starts glued). Pages are printed in the logo's terracotta with a faint print grain; work, team and clients are figurinhas with a number, a name and a category, stuck onto the page with a slight tilt. The home is the album's opening spread: cover, the "nossa casa" page for the law niche, collection pages, a printed checklist, the one shiny sticker, and the contact stickers of real people.
+The agency is a sticker album, opened already complete (2026-10-11: every slot starts glued). Pages are printed in the logo's terracotta with a faint print grain; work, team and clients are figurinhas with a number, a name and a category, stuck onto the page with a slight tilt. The home is the album's opening spread: cover, the "nossa casa" page for the law niche (with the agency itself as a sticker), the strategy checklist, collection pages, the service checklist, testimonials, and the contact stickers of real people under a "Vamos conversar?" headline.
 
 Density follows the album. Collection pages are generous grids of uniform stickers on terracotta; checklist pages switch to paper and carry dense, numbered lists with printed check squares. Titles speak like a newsstand headline: heavy slab caps, a nod to the founder's journalism roots. Everything that is "printed on the sticker" speaks in condensed caps.
 
@@ -168,10 +196,11 @@ A single warm hue at three depths, a paper neutral, an ink near-black and one fo
 
 ### Hierarchy
 - **Display** (Alfa Slab One, clamp(2.9rem, 7.2vw, 7rem), line-height 0.92, uppercase): the hero question only.
-- **Headline** (Alfa Slab One, clamp(2.4rem, 6vw, 5.4rem), line-height 0.92, uppercase, balanced): section titles. The slab also carries phase titles, empty-slot numbers, the facts row, testimonial highlights and blog post titles (sentence case there). One- or two-word page names ("O álbum", "O time") may run up to clamp(3rem, 10vw, 8rem).
-- **Stat** (Alfa Slab One, clamp(4.5rem, 11vw, 9rem), line-height 0.8, terra): the single "50%" on the "nossa casa" page, with a Title-size terra-dark caption under it. One stat per home; it is the mídia kit's own figure, not a metrics row.
+- **Headline** (Alfa Slab One, clamp(2.4rem, 6vw, 5.4rem), line-height 0.92, uppercase, balanced): collection-page titles (album, services).
+- **Headline Compact** (Alfa Slab One, clamp(1.7rem, 3vw, 3rem), line-height 1.1, uppercase, centered, max 16ch): "Tudo começa pela estratégia", the strategy page title on paper. The contact title "Vamos conversar?" runs one step up (clamp(2.4rem, 4vw, 4rem)) in terra. The slab also carries phase titles, empty-slot numbers, the facts row, testimonial highlights and blog post titles (sentence case there). One- or two-word page names ("O álbum", "O time") may run up to clamp(3rem, 10vw, 8rem).
+- **Stat** (Alfa Slab One, clamp(3.8rem, 8.5vw, 7rem), line-height 0.8, terra): the single "50%" on the "nossa casa" page, with a terra-dark caption (800, clamp(1.2rem, 1.9vw, 1.6rem)) under it. One stat per home; it is the mídia kit's own figure, not a metrics row.
 - **Title** (800, clamp(1.35rem, 2.3vw, 1.9rem), line-height 1.2): the hero answer and lead statements, max about 26ch. Founder intro and blog subheads stay in Figtree 800-900.
-- **Body** (400, 1.0625rem, line-height 1.55): running copy, 44-50ch on paper and terracotta. Secondary copy steps down to 0.95rem at line-height 1.45.
+- **Body** (400, 1.0625rem, line-height 1.55): running copy, 44-50ch on paper and terracotta. Secondary copy steps down to Body Small (0.95rem, line-height 1.45).
 - **Label** (Barlow Condensed 700, 0.72-1.2rem, letter-spacing 0.03em, uppercase, tabular numerals): sticker numbers, names and categories, checklist group titles, stat terms, person plates, the wordmark in the header.
 
 ### Named Rules
@@ -179,13 +208,15 @@ A single warm hue at three depths, a paper neutral, an ink near-black and one fo
 
 **The Handwritten Exception.** One title on the home, "Feedbacks", is centered and hand-lettered in Permanent Marker (loaded only on the home), as if written on the album page. It is the only centered title and the only marker text; do not spread it.
 
-**The Plate Voice Rule.** Condensed caps label a thing that exists (a sticker, a slot, a stat, a list group). They are not used as decorative lines above section titles.
+**The Plate Voice Rule.** Condensed caps label a thing that exists (a sticker, a slot, a stat, a list group, a contact column such as "Newsletter" or "Instagram"). They are not used as decorative lines above section titles.
+
+**The Accent Room Rule.** Slab caps sit at line-height 0.92, which lets "É" and "Ç" on a lower line collide with the line above. Any multi-line slab title whose lower lines carry an accented capital opens to 1.08-1.1 (the "nossa casa" and strategy titles do).
 
 ## Layout
 
-Pages are full-bleed bands; content sits in a centered wrap of min(100% - 2 x gutter, 88rem) with a fluid gutter of clamp(1rem, 4vw, 3rem). Sections breathe with clamp(4rem, 9vw, 8rem) vertical padding; the hero is tighter on top so the next page's edge shows at the fold.
+Pages are full-bleed bands; content sits in a centered wrap of min(100% - 2 x gutter, 88rem) with a fluid gutter of clamp(1rem, 4vw, 3rem). Sections breathe with clamp(4rem, 9vw, 8rem) vertical padding; the "nossa casa" and strategy pages use the compact step clamp(3.5rem, 7vw, 6rem). The hero is tighter on top so the next page's edge shows at the fold. Header, hero and every section share the same 88rem wrap; do not widen one band on its own.
 
-Collection pages use auto-fill sticker grids (minmax(min(100%, 15.5rem), 1fr) for portfolio slots, 17.5rem for contact stickers) with gaps of clamp(1rem, 2.2vw, 1.8rem). Two-column compositions (hero 1.35fr/1fr, founder 4fr/7fr, services head/list) collapse to one column at 56rem; testimonials, the "nossa casa" stat/text pair (5fr/7fr) and the contact rows stack at 48rem. The contact intro and the people stickers share the same two equal columns as the newsletter/blog row below them. Below 56rem the header links fold into a menu button panel; service descriptions become disclosure rows below 40rem; the newsletter field stacks below 26rem.
+Collection pages use auto-fill sticker grids (minmax(min(100%, 15.5rem), 1fr) for portfolio slots, 17.5rem for contact stickers) with gaps of clamp(1rem, 2.2vw, 1.8rem). Two-column compositions (hero 1.35fr/1fr, founder 4fr/7fr, services head/list) collapse to one column at 56rem; testimonials, the "nossa casa" grid and the contact rows stack at 48rem. The "nossa casa" grid is 7fr/5fr: headline over stat on the left, the agency sticker spanning both rows on the right, vertically centered. Contact is two equal columns (headline left, people stickers right) over a ruled three-column row (Newsletter 1.4fr, Blog 1fr, Instagram 1fr, divided by paper-line rules) that becomes newsletter-over-two at 64rem and one column at 48rem. Below 56rem the header links fold into a menu button panel; service descriptions become disclosure rows below 40rem; the newsletter field stacks below 26rem.
 
 Stickers sit at small, rhythmic tilts (between -1.2deg and 1.2deg, set per nth-child) and straighten on hover. Larger hero-only tilts (up to 14deg) belong to the fanned pack.
 
@@ -218,14 +249,14 @@ Tactile, rounded and confident.
 - **Ink:** ink ground, white text. Secondary actions on paper.
 - **Line:** transparent with a 2px inset ring in currentColor. Tertiary actions on any ground.
 - **Hover / Active:** lift 2px on hover, press 1px on active, 0.25s ease-out; foil lightens to #f7cf4d, ink to #2b211c. Disabled drops to 60% opacity with a progress cursor.
-- **Focus:** 3px foil outline at 3px offset, globally.
+- **Focus:** 3px foil outline at 3px offset on terracotta and ink grounds; on paper pages the outline turns ink, since foil on paper is about 1.3:1.
 
 ### Chips
-- **Filter chips:** pill, white at 10% ground with a 1.5px white-at-50% inset ring, white 700 text. Hover raises the ground to 20%. Pressed (aria-pressed) flips to white ground with terracotta text.
+- **Filter chips:** pill, white at 10% ground with a 1.5px white-at-50% inset ring, white 700 text. Hover raises the ground to 20%. Pressed (aria-pressed) flips to white ground with terracotta text. Below 48rem the row stops wrapping and scrolls sideways edge to edge, without a scrollbar.
 
 ### Cards / Containers
 - **Quote cards:** cream (the Instagram cream), 1rem corners, sticker-rest shadow, fluid padding clamp(1.5rem, 3vw, 2.4rem), tilted about 1deg, a ruled paper-line divider above the attribution.
-- **Checklist panel (paper pages):** white, 1rem corners, padding clamp(1.4rem, 3vw, 2.4rem), holding a multi-column list of strategy deliverables.
+- **Checklist panel (paper pages):** white, 1rem corners, padding clamp(1.2rem, 2.4vw, 1.9rem), holding the strategy deliverables in three phase columns (Diagnóstico, Posicionamento, Canais), each named in Figtree 800 terra-dark over a 2px ink rule, under a cream-box tag in label type (cream ground, terra-deep caps), the same device as "A gente responde." on the hero.
 
 ### Inputs / Fields
 - **Newsletter field:** a white pill holding a transparent input and an inset foil button, sticker-rest shadow on terracotta; on paper the shadow becomes a 2px ink inset ring. Placeholder #7a6a62.
@@ -247,7 +278,7 @@ The unit of the whole system.
 Every slot opens with its sticker already glued (client request, 2026-10-11); a tap opens the work in the viewer. Under each sticker sits a terra-deep recess with the printed number and name behind a dashed outline, seen only while the sticker drops in on first sight. A sticker found from the pack gets a foil ring that fades out; stickers from the pack wear a foil "Colada" badge.
 
 ### "Nossa casa" page
-The law-niche page right after the cover, on paper: the slab headline (a step below Headline, clamp(2rem, 4.6vw, 4.2rem)) in two voices ("Atendemos todos os nichos." in terra-dark, "Mas a advocacia é a nossa casa." in terra), the Stat "50%" with its caption on the left and the mídia kit text on the right in Soft Ink, with the OAB line in Ink 800. It flows into the strategy page below without its own bottom padding, since both are paper.
+The law-niche page right after the cover, on paper: the slab headline (clamp(1.8rem, 3.8vw, 3.4rem), line-height 1.08) in two voices ("Atendemos todos os nichos." in terra-dark, "Mas a advocacia é a nossa casa." in terra), the Stat "50%" with its caption below it, and the mídia kit text on the right as the **agency sticker**: a straight (untilted) white card, 0.6rem corners, sticker-rest shadow, Soft Ink copy at clamp(0.98rem, 1.2vw, 1.08rem) with the OAB line in Ink 800, closed by a full-bleed ink plate with the agency name in white and "Desde 2021 · Porto Alegre (RS)" in foil. It has no number chip. From its bottom edge a hand-drawn terra arrow (single curve, 4px round stroke, open chevron head) points down-left to the strategy title; it is hidden below 80rem, where the gap is too short. The page flows into the strategy page without its own bottom padding, since both are paper.
 
 ### Service checklist
 Two groups on the paper page: "Mais usados por advogados" (numbered rows with the printed check square and an always-open description on wide screens) and "Também fazemos" (a lighter list: small terra check, 700 Soft Ink name, a plus that rotates 45deg; each row is a disclosure that reveals its description on tap or click at every width, min row height 2.75rem).
@@ -268,7 +299,7 @@ A 5:7 foil wrapper printed with the logo, crimped edges, leaning at -7deg with a
 - **Do** use the slab caps for page titles and the condensed caps for anything printed on a sticker or slot.
 - **Do** reserve the spring easing for stickers and use the exponential ease-out for every other transition.
 - **Do** use black-alpha shadows from the sticker-rest / sticker-lift vocabulary.
-- **Do** keep every control a pill and every focus state a 3px foil outline.
+- **Do** keep every control a pill and every focus state a 3px outline: foil on terracotta and ink, ink on paper.
 
 ### Don't:
 - **Don't** add a second foil sticker or use foil as a section background.

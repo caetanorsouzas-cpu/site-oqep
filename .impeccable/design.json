@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-08T02:44:26.742Z",
+  "generatedAt": "2026-10-11T20:47:25.681284Z",
   "title": "Design System: O Que Eu Postaria?",
   "extensions": {
     "colorMeta": {
@@ -190,6 +190,18 @@
       "label": {
         "displayName": "Plate Label",
         "purpose": "Condensed (72%) caps for sticker numbers, names, categories, list groups and stats."
+      },
+      "headline-compact": {
+        "displayName": "Headline Compact",
+        "purpose": "Strategy page title on paper, centered, two lines."
+      },
+      "stat": {
+        "displayName": "Stat",
+        "purpose": "The single 50% on the nossa casa page."
+      },
+      "body-small": {
+        "displayName": "Body Small",
+        "purpose": "Secondary copy: service descriptions, contact copy, captions."
       }
     },
     "shadows": [
@@ -335,11 +347,19 @@
       "description": "White testimonial card, tilted, terracotta highlight line.",
       "html": "<div style=\"background:#ae361b;padding:2rem\"><figure class=\"ds-quote\"><p class=\"ds-quote-hi\">\"…nos mostrando o que realmente traz resultados.\"</p><figcaption><span class=\"ds-quote-name\">Stephanie Matos</span></figcaption></figure></div>",
       "css": ".ds-quote{display:grid;gap:1.2rem;margin:0;max-width:28rem;padding:clamp(1.5rem,3vw,2.4rem);background:#fff;color:#17110e;border-radius:1rem;box-shadow:0 .15rem .3rem rgb(0 0 0/.25),0 .9rem 1.6rem -.4rem rgb(0 0 0/.35);rotate:-1deg;font-family:'Figtree Variable','Figtree',system-ui,sans-serif}.ds-quote-hi{margin:0;font-size:clamp(1.45rem,2.4vw,2rem);font-weight:900;font-family:'Alfa Slab One','Rockwell',Georgia,serif;font-synthesis:none;line-height:1.12;color:#ae361b}.ds-quote figcaption{padding-top:1rem;border-top:1px solid #dec69b}.ds-quote-name{font-family:'Barlow Condensed','Arial Narrow',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:1.05rem}"
+    },
+    {
+      "name": "Agency Sticker",
+      "kind": "card",
+      "refersTo": "agency-sticker",
+      "description": "The agency itself as a sticker: about text on white, closed by an ink plate. No number chip, no tilt.",
+      "html": "<figure class=\"ds-agency\"><div class=\"ds-agency__body\"><p>A O Que Eu Postaria? nasceu em 2021 para simplificar a comunicação de empresas e profissionais nas redes sociais.</p><p>Para o direito, isso significa comunicar com <strong>ética, clareza e dentro das normas da OAB</strong>.</p></div><figcaption class=\"ds-agency__plate\"><span class=\"ds-agency__name\">O Que Eu Postaria?</span><span class=\"ds-agency__cat\">Desde 2021 · Porto Alegre (RS)</span></figcaption></figure>",
+      "css": ".ds-agency{margin:0;max-width:30rem;background:var(--white,#fff);border-radius:0.6rem;box-shadow:0 0.15rem 0.3rem rgb(0 0 0 / .25),0 0.9rem 1.6rem -0.4rem rgb(0 0 0 / .35);color:var(--ink-soft,#4a3a33);font-family:'Figtree Variable','Figtree',system-ui,sans-serif;font-size:1.02rem;line-height:1.55}.ds-agency__body{display:grid;gap:0.8rem;padding:1.4rem 1.4rem 1.3rem}.ds-agency__body strong{color:var(--ink,#17110e)}.ds-agency__plate{display:grid;padding:0.6rem 1.4rem 0.7rem;background:var(--ink,#17110e);border-radius:0 0 0.6rem 0.6rem;color:#fff;font-family:'Barlow Condensed','Arial Narrow',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.03em;line-height:1.15}.ds-agency__name{font-size:1.1rem}.ds-agency__cat{font-size:0.8rem;font-weight:600;color:var(--foil,#f2c230)}"
     }
   ],
   "narrative": {
     "northStar": "Álbum de Figurinhas",
-    "overview": "The agency is a sticker album, opened already complete (2026-10-11: every slot starts glued). Pages are printed in the logo's terracotta with a faint print grain; work, team and clients are figurinhas with a number, a name and a category, stuck onto the page with a slight tilt. The home is the album's opening spread: cover, the \"nossa casa\" page for the law niche, collection pages, a printed checklist, the one shiny sticker, and the contact stickers of real people.\n\nDensity follows the album. Collection pages are generous grids of uniform stickers on terracotta; checklist pages switch to paper and carry dense, numbered lists with printed check squares. Titles speak in the agency's own portfolio voice: wide, heavy, uppercase. Everything that is \"printed on the sticker\" speaks in condensed caps.\n\nMotion belongs to the stickers. They drop and spring out of the torn pack with overshoot, then point to their place in the album; every other surface moves on a calm exponential ease-out. Reduced motion removes the theatre and keeps the content.",
+    "overview": "The agency is a sticker album, opened already complete (2026-10-11: every slot starts glued). Pages are printed in the logo's terracotta with a faint print grain; work, team and clients are figurinhas with a number, a name and a category, stuck onto the page with a slight tilt. The home is the album's opening spread: cover, the \"nossa casa\" page for the law niche (with the agency itself as a sticker), the strategy checklist, collection pages, the service checklist, testimonials, and the contact stickers of real people under a \"Vamos conversar?\" headline.\n\nDensity follows the album. Collection pages are generous grids of uniform stickers on terracotta; checklist pages switch to paper and carry dense, numbered lists with printed check squares. Titles speak in the agency's own portfolio voice: wide, heavy, uppercase. Everything that is \"printed on the sticker\" speaks in condensed caps.\n\nMotion belongs to the stickers. They drop and spring out of the torn pack with overshoot, then point to their place in the album; every other surface moves on a calm exponential ease-out. Reduced motion removes the theatre and keeps the content.",
     "keyCharacteristics": [
       "Terracotta album pages (#ae361b family) alternating with paper checklist pages and a dark-terracotta page for the team and footer.",
       "White-bordered, rounded stickers with an ink name plate, a terracotta \"OQEP nn\" number chip and a foil category.",
@@ -365,7 +385,7 @@
       },
       {
         "name": "The Plate Voice Rule",
-        "body": "Condensed caps label a thing that exists (a sticker, a slot, a stat, a list group). They are not used as decorative lines above section titles.",
+        "body": "Condensed caps label a thing that exists (a sticker, a slot, a stat, a list group, a contact column such as \"Newsletter\" or \"Instagram\"). They are not used as decorative lines above section titles.",
         "section": "typography"
       },
       {
@@ -377,6 +397,11 @@
         "name": "The Gloss Rule",
         "body": "Every sticker carries a static diagonal gloss (white at 22-32% alpha); on hover the highlight sweeps across in 0.8s ease-out. Gloss is the sticker's material, not a page effect.",
         "section": "elevation"
+      },
+      {
+        "name": "The Accent Room Rule",
+        "body": "Slab caps sit at line-height 0.92, which lets \"É\" and \"Ç\" on a lower line collide with the line above. Any multi-line slab title whose lower lines carry an accented capital opens to 1.08-1.1 (the \"nossa casa\" and strategy titles do).",
+        "section": "typography"
       }
     ],
     "dos": [
@@ -385,7 +410,7 @@
       "Do use the wide 125% black caps for page titles and the 72% condensed caps for anything printed on a sticker or slot.",
       "Do reserve the spring easing for stickers and use the exponential ease-out for every other transition.",
       "Do use black-alpha shadows from the sticker-rest / sticker-lift vocabulary.",
-      "Do keep every control a pill and every focus state a 3px foil outline."
+      "Do keep every control a pill and every focus state a 3px outline: foil on terracotta and ink, ink on paper."
     ],
     "donts": [
       "Don't add a second foil sticker or use foil as a section background.",

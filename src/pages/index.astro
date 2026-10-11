@@ -69,7 +69,7 @@ const fan = ['mk10', 'mk07', 'mk05'].map((f) => works.find((w) => w.file.startsW
           </h1>
           <p class="hero__answer"><span class="hero__box">A gente responde.</span> Primeiro com estratégia, depois com o post.</p>
           <p class="hero__sub">
-            Agência de comunicação e marketing de Porto Alegre (RS) para empresas e profissionais do Brasil inteiro.
+            Agência de comunicação e marketing de Porto Alegre (RS) para advogados, escritórios e empresas do Brasil inteiro.
           </p>
           <Newsletter id="hero" />
           <a class="hero__talk" href={primaryContact.whatsapp} target="_blank" rel="noopener">
@@ -95,7 +95,7 @@ const fan = ['mk10', 'mk07', 'mk05'].map((f) => works.find((w) => w.file.startsW
               <Image src={logo} alt="" width={96} height={96} class="pack__logo" loading="eager" />
               <span class="pack__brand label">Figurinhas OQEP</span>
               <span class="pack__count title">5</span>
-              <span class="pack__sub label">trabalhos reais</span>
+              <span class="pack__sub label">de {works.length} trabalhos</span>
             </span>
             <span class="visually-hidden">Abrir pacotinho de figurinhas</span>
           </button>
@@ -155,19 +155,25 @@ const fan = ['mk10', 'mk07', 'mk05'].map((f) => works.find((w) => w.file.startsW
           </p>
         </div>
 
-
         <div class="method__list">
           <h3 class="label method__listtitle">Estratégia advogado Fausto Manica</h3>
-          <ul role="list" class="checks">
+          <div class="phases">
             {
-              strategySteps.map((s) => (
-                <li>
-                  <Icon name="check" />
-                  {s}
-                </li>
+              strategySteps.map((g) => (
+                <div class="phase">
+                  <h4 class="phase__name">{g.phase}</h4>
+                  <ul role="list" class="checks">
+                    {g.items.map((s) => (
+                      <li>
+                        <Icon name="check" />
+                        {s}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               ))
             }
-          </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -905,16 +911,26 @@ const fan = ['mk10', 'mk07', 'mk05'].map((f) => works.find((w) => w.file.startsW
     font-size: 1rem;
   }
 
-  .checks {
-    columns: 3 16rem;
-    column-gap: 2rem;
+  /* Three phases side by side, each a short checklist under its name */
+  .phases {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+    gap: 1.6rem 2rem;
+  }
+
+  .phase__name {
+    margin-bottom: 0.3rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 2px solid var(--ink);
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--terra-dark);
   }
 
   .checks li {
     display: flex;
     gap: 0.6rem;
     align-items: start;
-    break-inside: avoid;
     padding-block: 0.45rem;
     border-bottom: 1px solid var(--paper-line);
     line-height: 1.35;
@@ -967,6 +983,27 @@ const fan = ['mk10', 'mk07', 'mk05'].map((f) => works.find((w) => w.file.startsW
     flex-wrap: wrap;
     gap: 0.5rem;
     margin-block: 2.2rem 2.6rem;
+  }
+
+  /* On phones the nine chips slide in one row instead of stacking four rows deep */
+  @media (max-width: 48rem) {
+    .filters {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      margin-inline: calc(-1 * var(--gutter));
+      padding: 0.3rem var(--gutter);
+      scrollbar-width: none;
+      scroll-snap-type: x proximity;
+    }
+
+    .filters::-webkit-scrollbar {
+      display: none;
+    }
+
+    .filter {
+      flex: none;
+      scroll-snap-align: start;
+    }
   }
 
   .filter {

@@ -62,22 +62,21 @@ export const founderQuote = [
   'Abri uma agência e lidero uma equipe dedicada a ajudar empresas e profissionais a alcançarem seu potencial máximo. Hoje vejo que minha missão é agregar valor através da comunicação, transformando desafios em oportunidades de crescimento.',
 ];
 
-// O que entra na estratégia (do documento entregue ao advogado Fausto Manica, no mídia kit).
-export const strategySteps = [
-  'Canais digitais atuais',
-  'Personalidade do especialista',
-  'Referências e concorrentes',
-  'Objetivos do projeto',
-  'DNA do projeto',
-  'Missão, visão e valores',
-  'Análise SWOT',
-  'Personas e público-alvo',
-  'Palavras-chave',
-  'Identidade visual',
-  'Mapa do site',
-  'Linhas editoriais',
-  'Instagram, LinkedIn e WhatsApp',
-  'Materiais educacionais',
+// O que entra na estratégia (do documento entregue ao advogado Fausto Manica, no mídia kit),
+// agrupado em três fases.
+export const strategySteps: { phase: string; items: string[] }[] = [
+  {
+    phase: 'Diagnóstico',
+    items: ['Canais digitais atuais', 'Referências e concorrentes', 'Análise SWOT', 'Personas e público-alvo', 'Palavras-chave'],
+  },
+  {
+    phase: 'Posicionamento',
+    items: ['Personalidade do especialista', 'Objetivos do projeto', 'DNA do projeto', 'Missão, visão e valores', 'Identidade visual'],
+  },
+  {
+    phase: 'Canais',
+    items: ['Mapa do site', 'Linhas editoriais', 'Instagram, LinkedIn e WhatsApp', 'Materiais educacionais'],
+  },
 ];
 
 export type Service = { name: string; text: string };
