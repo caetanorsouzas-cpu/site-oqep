@@ -11,6 +11,8 @@ Scope: `src/pages/index.astro`, the agency home. Mode: Persuade.
 
 Audience: Brazilian business owners and professionals who value branding, arriving mostly from the Instagram bio on a phone. Job: believe this team thinks strategy before posts, see real work, then act. Actions: newsletter signup (user-requested, per the rectangles.fm pattern) and WhatsApp/email contact with a named person. Proof: 41 portfolio plates in `materiais/portfolio/`, two verbatim testimonials, "+75 empresas/profissionais", "+8 anos", founder story. Constraints: terracotta #AE361B and the logo are binding; avoid generic agency, avoid too serious, never leave the brand. Content that must be on the home: services (all), testimonials + numbers, portfolio, interactive bits, newsletter. Andréia + team moved to their own page, `src/pages/sobre.astro` (/sobre/, "Sobre nós" in the header), at the client's request on 2026-10-08.
 
+Update 2026-10-11 (client): law-niche repositioning from the 2026 mídia kit (`materiais/midia-kit/`). New paper page "Atendemos todos os nichos. Mas a advocacia é a nossa casa." with the 50% stat after the cover; album shows only legal work (18 stickers, mídia kit pages + legal pieces) and opens complete, no empty slots; services split into six "Mais usados por advogados" plus a "Também fazemos" disclosure list; home contacts are Henrique and Andréia. The hero sub-line stays general ("empresas e profissionais do Brasil inteiro"), at the client's request.
+
 Unresolved: newsletter provider (form posts to a configurable endpoint, none set yet); Andréia's and team photos (empty numbered slots until they arrive); deploy target.
 
 ## Direction contract

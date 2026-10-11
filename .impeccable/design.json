@@ -206,7 +206,7 @@
       {
         "name": "slot-recess",
         "value": "inset 0 0.15rem 0.5rem rgb(0 0 0 / 0.35)",
-        "purpose": "Empty album slots pressed into the page."
+        "purpose": "Album slot well pressed into the page, seen while a sticker drops in."
       },
       {
         "name": "button-foil",
@@ -339,7 +339,7 @@
   ],
   "narrative": {
     "northStar": "Álbum de Figurinhas",
-    "overview": "The agency is a sticker album you complete. Pages are printed in the logo's terracotta with a faint print grain; work, team and clients are figurinhas with a number, a name and a category, stuck onto the page with a slight tilt. The home is the album's opening spread: cover, collection pages, a printed checklist, the one shiny sticker, and the contact stickers of real people.\n\nDensity follows the album. Collection pages are generous grids of uniform stickers on terracotta; checklist pages switch to paper and carry dense, numbered lists with printed check squares. Titles speak in the agency's own portfolio voice: wide, heavy, uppercase. Everything that is \"printed on the sticker\" speaks in condensed caps.\n\nMotion belongs to the stickers. They drop, spring out of the torn pack and get glued into slots with overshoot; every other surface moves on a calm exponential ease-out. Reduced motion removes the theatre and keeps the content.",
+    "overview": "The agency is a sticker album, opened already complete (2026-10-11: every slot starts glued). Pages are printed in the logo's terracotta with a faint print grain; work, team and clients are figurinhas with a number, a name and a category, stuck onto the page with a slight tilt. The home is the album's opening spread: cover, the \"nossa casa\" page for the law niche, collection pages, a printed checklist, the one shiny sticker, and the contact stickers of real people.\n\nDensity follows the album. Collection pages are generous grids of uniform stickers on terracotta; checklist pages switch to paper and carry dense, numbered lists with printed check squares. Titles speak in the agency's own portfolio voice: wide, heavy, uppercase. Everything that is \"printed on the sticker\" speaks in condensed caps.\n\nMotion belongs to the stickers. They drop and spring out of the torn pack with overshoot, then point to their place in the album; every other surface moves on a calm exponential ease-out. Reduced motion removes the theatre and keeps the content.",
     "keyCharacteristics": [
       "Terracotta album pages (#ae361b family) alternating with paper checklist pages and a dark-terracotta page for the team and footer.",
       "White-bordered, rounded stickers with an ink name plate, a terracotta \"OQEP nn\" number chip and a foil category.",

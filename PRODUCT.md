@@ -24,6 +24,7 @@ Success: qualified businesses/professionals contact the team to request a propos
 
 ## Positioning
 
+- **Niche focus (decided by the user, 2026-10-11): advocacia.** The site follows the 2026 law-firm mídia kit (`materiais/midia-kit/midia-kit-advogados-v5.pdf`): "Atendemos todos os nichos. Mas a advocacia é a nossa casa." 50% of clients are lawyers; 100% online, clients in RS, SC and SP; communication with ethics, clarity, authority and within OAB rules. Portfolio shows only legal work; the six services most used by lawyers are featured, the rest listed as "Também fazemos"; contacts on the home are Henrique (Comercial) and Andréia (CEO), as in the mídia kit.
 - Strategy comes first: "elaborar a estratégia é um serviço prévio ao serviço de gestão de redes." A 20–30 day strategy phase (channels, personality, competitors, objectives, personas, SWOT, brand DNA, keywords, visual identity, editorial lines, tone of voice, channel strategy, site mapping, funnel campaigns) precedes execution. Solutions "vão além da produção de conteúdo."
 - Journalism roots: founded by a journalist, the agency also does press relations (assessoria de imprensa), journalistic writing and text revision, which most social-media agencies cannot claim.
 - Origin story as proof: the founder's Instagram @oqueeupostaria.mkt started as free content tips with no commercial goal and grew fast enough to become the agency.

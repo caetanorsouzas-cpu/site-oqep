@@ -16,7 +16,8 @@ import {
   contacts,
   primaryContact,
   strategySteps,
-  serviceGroups,
+  featuredServices,
+  otherServices,
   portfolio,
   categories,
   testimonials,
@@ -42,11 +43,6 @@ const works = await Promise.all(
   }),
 );
 
-const clientCount = new Set(
-  portfolio
-    .map((w) => w.client)
-    .filter((c) => !['Estratégia digital', 'Ilustrações autorais', 'Cartazes', 'Backdrop', 'Papel timbrado', 'Cartões de visita', 'Sites e landing pages'].includes(c)),
-).size;
 const usedCategories = categories.filter((c) => portfolio.some((w) => w.category === c));
 
 const worksJson = JSON.stringify(
@@ -54,14 +50,12 @@ const worksJson = JSON.stringify(
 );
 
 // three real pieces fanned behind the sealed pack
-const fan = [43, 7, 22].map((n) => works.find((w) => w.file.startsWith(String(n).padStart(2, '0')))!);
-const serviceTotal = serviceGroups.reduce((n, g) => n + g.services.length, 0);
-let serviceNo = 0;
+const fan = ['mk10', 'mk07', 'mk05'].map((f) => works.find((w) => w.file.startsWith(f))!);
 ---
 
 <Base
   title="O Que Eu Postaria? · Agência de Comunicação e Marketing"
-  description="Agência de comunicação e marketing de Porto Alegre para empresas e profissionais do Brasil inteiro. Estratégia antes do post: redes sociais, identidade visual, tráfego, assessoria de imprensa e sites."
+  description="Agência de comunicação e marketing de Porto Alegre para empresas e profissionais do Brasil inteiro, com foco em advocacia. Estratégia antes do post: redes sociais, identidade visual, papelaria, apresentações e sites."
 >
   <Header />
 
@@ -118,25 +112,48 @@ let serviceNo = 0;
       </div>
     </section>
 
+    <!-- Quem somos: a advocacia é a nossa casa -->
+    <section class="page page--paper home" aria-labelledby="home-title">
+      <div class="wrap home__grid">
+        <h2 class="title home__title" id="home-title">
+          Atendemos todos os nichos. <span class="home__line">Mas a advocacia é a nossa casa.</span>
+        </h2>
+        <p class="home__stat">
+          <span class="title home__num">50%</span>
+          <span class="home__of">dos nossos clientes são advogados.</span>
+        </p>
+        <div class="home__text">
+          <p>
+            A {agency.name} nasceu em 2021 para simplificar a comunicação de empresas e profissionais nas redes sociais, com estratégia antes de execução.
+          </p>
+          <p>Somos uma agência 100% online, com clientes no RS, SC e SP, e trabalhamos com atenção individualizada e parceria de longo prazo.</p>
+          <p>
+            Para o direito, isso significa comunicar com <strong>ética, clareza, autoridade e dentro das normas da OAB</strong>, sem perder o lado humano de
+            cada advogado e escritório.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- Estratégia antes do post -->
     <section class="page page--paper method" aria-labelledby="method-title">
       <div class="wrap method__grid">
         <div class="method__head">
           <h2 class="title method__title" id="method-title">Antes do post, a estratégia.</h2>
           <p class="method__lead">
-            Todo trabalho começa entendendo a personalidade da sua empresa. Em 20 a 30 dias montamos a estratégia que guia cada publicação, e só depois
-            partimos para a execução. Sem fórmula pronta: um plano de ação feito para o seu negócio.
+            Muita agência sai direto fazendo post, a gente começa pela estratégia: um estudo de mercado e do cliente que leva de 20 a 30 dias. Cada advogado
+            recebe um documento completo, do perfil do especialista ao conteúdo de cada rede.
           </p>
         </div>
 
         <ol class="phases" role="list">
           <li class="phase">
             <h3 class="phase__title">Estratégia</h3>
-            <p>20 a 30 dias de estudo: canais, concorrência, personas, tom de voz e linhas editoriais.</p>
+            <p>20 a 30 dias de estudo: personalidade, concorrência, personas, linhas editoriais e a estratégia de cada rede.</p>
           </li>
           <li class="phase">
             <h3 class="phase__title">Execução</h3>
-            <p>Redes, design, tráfego, imprensa e site seguindo o plano, com organização e prazos cumpridos.</p>
+            <p>Redes, marca, papelaria, apresentações e site seguindo o plano, com cronograma mensal aprovado por você.</p>
           </li>
           <li class="phase">
             <h3 class="phase__title">Parceria</h3>
@@ -145,7 +162,7 @@ let serviceNo = 0;
         </ol>
 
         <div class="method__list">
-          <h3 class="label method__listtitle">O que entra na estratégia</h3>
+          <h3 class="label method__listtitle">O que entra na estratégia · exemplo do advogado Fausto Manica</h3>
           <ul role="list" class="checks">
             {
               strategySteps.map((s) => (
@@ -166,7 +183,7 @@ let serviceNo = 0;
         <div class="album__head">
           <h2 class="title album__title" id="album-title">O álbum</h2>
           <p class="album__meta">
-            <strong data-count>{works.length} figurinhas</strong>, {clientCount} clientes reais. Toque numa figurinha para ver o trabalho inteiro.
+            <strong>{works.length} figurinhas</strong> feitas para advogados e escritórios. Toque numa figurinha para ver o trabalho inteiro.
           </p>
         </div>
 
@@ -211,46 +228,60 @@ let serviceNo = 0;
     <section class="page page--paper services" id="servicos" aria-labelledby="services-title">
       <div class="wrap services__grid">
         <div class="services__head">
-          <h2 class="title services__title" id="services-title">Tudo o que a gente faz</h2>
-          <p>
-            {serviceTotal} serviços para cuidar da comunicação inteira, do posicionamento ao site. Você escolhe o que precisa; a gente prepara uma proposta para o
-            seu momento.
-          </p>
+          <h2 class="title services__title" id="services-title">O que fazemos pela advocacia</h2>
+          <p>Os serviços mais usados por advogados e escritórios. Você escolhe o que precisa; a gente prepara uma proposta para o seu momento.</p>
           <a class="btn btn--ink" href={primaryContact.whatsapp} target="_blank" rel="noopener">
             <Icon name="whatsapp" /> Pedir uma proposta
           </a>
         </div>
 
         <div class="checklist">
-          {
-            serviceGroups.map((g) => (
-              <div class="checklist__group">
-                <h3 class="checklist__title label">{g.title}</h3>
-                <ul role="list">
-                  {g.services.map((s) => {
-                    serviceNo += 1;
-                    return (
-                      <li>
-                        <details class="svc" open data-svc>
-                          <summary class="svc__row">
-                            <span class="svc__box" aria-hidden="true">
-                              <Icon name="check" />
-                            </span>
-                            <span class="svc__no label">{String(serviceNo).padStart(2, '0')}</span>
-                            <h4 class="svc__name">{s.name}</h4>
-                            <span class="svc__more" aria-hidden="true">
-                              <Icon name="plus" />
-                            </span>
-                          </summary>
-                          <p class="svc__text">{s.text}</p>
-                        </details>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            ))
-          }
+          <div class="checklist__group">
+            <h3 class="checklist__title label">Mais usados por advogados</h3>
+            <ul role="list">
+              {
+                featuredServices.map((s, i) => (
+                  <li>
+                    <details class="svc" open data-svc>
+                      <summary class="svc__row">
+                        <span class="svc__box" aria-hidden="true">
+                          <Icon name="check" />
+                        </span>
+                        <span class="svc__no label">{String(i + 1).padStart(2, '0')}</span>
+                        <h4 class="svc__name">{s.name}</h4>
+                        <span class="svc__more" aria-hidden="true">
+                          <Icon name="plus" />
+                        </span>
+                      </summary>
+                      <p class="svc__text">{s.text}</p>
+                    </details>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+
+          <div class="checklist__group">
+            <h3 class="checklist__title label">Também fazemos</h3>
+            <ul role="list" class="also">
+              {
+                otherServices.map((s) => (
+                  <li>
+                    <details class="also__item">
+                      <summary class="also__row">
+                        <Icon name="check" />
+                        <span class="also__name">{s.name}</span>
+                        <span class="also__more" aria-hidden="true">
+                          <Icon name="plus" />
+                        </span>
+                      </summary>
+                      <p class="also__text">{s.text}</p>
+                    </details>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -282,8 +313,9 @@ let serviceNo = 0;
     <!-- Contato -->
     <section class="page page--paper contact" id="contato" aria-label="Contato">
       <div class="wrap">
+        <div class="contact__top">
         <div class="contact__head">
-          <p>Escolha com quem quer conversar. A gente entende o seu momento e prepara uma proposta para o seu negócio.</p>
+          <p>Vamos conversar? Conte para a gente o que o seu escritório precisa. A gente entende o seu momento e prepara uma proposta especial para você.</p>
         </div>
 
         <ul class="people" role="list">
@@ -310,6 +342,7 @@ let serviceNo = 0;
             ))
           }
         </ul>
+        </div>
 
         <div class="contact__news">
           <Newsletter id="footer" tone="paper" />
@@ -695,6 +728,67 @@ let serviceNo = 0;
     }
   }
 
+  /* Home of the law: who we are */
+  .home {
+    padding-block: clamp(4rem, 9vw, 8rem) 0;
+  }
+
+  .home__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: clamp(2rem, 5vw, 4.5rem) clamp(1.5rem, 5vw, 5rem);
+    align-items: start;
+  }
+
+  .home__title {
+    grid-column: 1 / -1;
+    max-width: 22ch;
+    font-size: clamp(2rem, 4.6vw, 4.2rem);
+    color: var(--terra-dark);
+  }
+
+  .home__line {
+    display: block;
+    color: var(--terra);
+  }
+
+  .home__stat {
+    display: grid;
+    gap: 0.6rem;
+  }
+
+  .home__num {
+    font-size: clamp(4.5rem, 11vw, 9rem);
+    line-height: 0.8;
+    color: var(--terra);
+  }
+
+  .home__of {
+    max-width: 16ch;
+    font-size: clamp(1.35rem, 2.3vw, 1.9rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--terra-dark);
+  }
+
+  .home__text {
+    display: grid;
+    gap: 1rem;
+    max-width: 56ch;
+    font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+    color: var(--ink-soft);
+  }
+
+  .home__text strong {
+    color: var(--ink);
+  }
+
+  @media (max-width: 48rem) {
+    .home__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
   /* Method */
   .method {
     padding-block: clamp(4rem, 9vw, 8rem);
@@ -912,23 +1006,6 @@ let serviceNo = 0;
     border-radius: 0.35rem;
   }
 
-  .slot.is-empty .slot__btn :global(.sticker) {
-    opacity: 0;
-  }
-
-  .slot.is-empty .slot__btn {
-    cursor: pointer;
-  }
-
-  .slot.is-empty .slot__btn:hover,
-  .slot.is-empty .slot__btn:focus-visible {
-    transform: none;
-  }
-
-  .slot.is-empty .slot__print {
-    color: rgb(255 255 255 / 0.7);
-  }
-
   .slot__printno {
     font-family: var(--font-display);
     font-size: 2.6rem;
@@ -1135,6 +1212,56 @@ let serviceNo = 0;
     line-height: 1.45;
   }
 
+  .checklist .also {
+    columns: 2 13rem;
+  }
+
+  .also__item {
+    border-bottom: 1px solid var(--paper-line);
+  }
+
+  .also__row {
+    display: grid;
+    grid-template-columns: 1rem 1fr 1.1rem;
+    gap: 0.6rem;
+    align-items: center;
+    min-height: 2.75rem;
+    list-style: none;
+    cursor: pointer;
+    color: var(--ink-soft);
+    font-weight: 700;
+  }
+
+  .also__row::-webkit-details-marker {
+    display: none;
+  }
+
+  .also__row :global(svg) {
+    width: 100%;
+    height: auto;
+    stroke-width: 3;
+    color: var(--terra);
+  }
+
+  .also__row:hover .also__name {
+    color: var(--ink);
+  }
+
+  .also__more {
+    transition: transform 0.3s var(--ease-out);
+  }
+
+  .also__item[open] .also__more {
+    transform: rotate(45deg);
+  }
+
+  .also__text {
+    margin: 0 0 0.8rem 1.6rem;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    line-height: 1.45;
+  }
+
   @media (max-width: 40rem) {
     .svc {
       padding-block: 0.8rem;
@@ -1259,16 +1386,27 @@ let serviceNo = 0;
     padding-block: clamp(4rem, 9vw, 8rem);
   }
 
+  /* intro and people share the two columns of the newsletter row below */
+  .contact__top {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 2rem 4rem;
+    align-items: start;
+  }
+
   .contact__head {
     display: grid;
     gap: 1rem;
-    max-width: 48rem;
   }
 
   .contact__head p {
-    font-size: 1.15rem;
+    font-size: clamp(1.1rem, 1.6vw, 1.3rem);
     color: var(--ink-soft);
-    max-width: 50ch;
+    max-width: 34ch;
+  }
+
+  .contact__top .people {
+    margin-top: 0;
   }
 
   .people {
@@ -1408,6 +1546,7 @@ let serviceNo = 0;
   }
 
   @media (max-width: 48rem) {
+    .contact__top,
     .contact__news {
       grid-template-columns: 1fr;
     }
@@ -1558,44 +1697,6 @@ let serviceNo = 0;
   }
   applyFilter('*');
 
-  /* ---------- Empty slots: the first pack holds the stickers the album is missing ---------- */
-  const count = document.querySelector<HTMLElement>('[data-count]')!;
-  const missing = new Set<number>();
-  function updateCount() {
-    const glued = works.length - missing.size;
-    count.textContent = missing.size ? `${glued} de ${works.length} figurinhas coladas` : `${works.length} figurinhas coladas`;
-  }
-  if (!reduce) {
-    const pool = [...Array(Math.min(PREVIEW, works.length)).keys()].sort(() => Math.random() - 0.5).slice(0, 5);
-    pool.forEach((i) => {
-      missing.add(i);
-      const slot = slots[i];
-      slot.classList.add('is-empty');
-      slot.querySelector('.slot__btn')!.setAttribute('aria-label', `Colar a figurinha ${pad(works[i].number)}: ${works[i].client}`);
-    });
-    updateCount();
-  }
-
-  function glue(i: number) {
-    if (!missing.has(i)) return false;
-    missing.delete(i);
-    const slot = slots[i];
-    const btn = slot.querySelector<HTMLButtonElement>('.slot__btn')!;
-    slot.classList.remove('is-empty');
-    btn.setAttribute('aria-label', `Ver ${works[i].category}: ${works[i].client}`);
-    btn.animate(
-      [
-        { transform: 'translate(0.5rem, -3rem) rotate(-9deg) scale(1.3)', opacity: 0 },
-        { opacity: 1, offset: 0.3 },
-        { transform: 'none', opacity: 1 },
-      ],
-      { duration: 700, easing: spring },
-    );
-    document.querySelectorAll<HTMLElement>(`.flying[data-work="${i}"]`).forEach((f) => f.classList.add('is-glued'));
-    updateCount();
-    return true;
-  }
-
   more.addEventListener('click', () => {
     expanded = true;
     more.setAttribute('aria-expanded', 'true');
@@ -1670,7 +1771,6 @@ let serviceNo = 0;
   document.querySelectorAll<HTMLButtonElement>('[data-open]').forEach((b) =>
     b.addEventListener('click', () => {
       const i = Number(b.dataset.open);
-      if (glue(i)) return;
       show(i);
       viewer.showModal();
     }),
@@ -1696,11 +1796,6 @@ let serviceNo = 0;
   let deck: number[] = [];
 
   function draw(n: number) {
-    if (missing.size) {
-      const picks = [...missing];
-      const rest = works.map((_, i) => i).filter((i) => !missing.has(i)).sort(() => Math.random() - 0.5);
-      return [...picks, ...rest].slice(0, n);
-    }
     if (deck.length < n) {
       deck = works.map((_, i) => i).sort(() => Math.random() - 0.5);
     }
@@ -1730,7 +1825,6 @@ let serviceNo = 0;
     void slot.offsetWidth;
     slot.classList.add('is-found');
     slot.querySelector<HTMLButtonElement>('.slot__btn')!.focus({ preventScroll: true });
-    window.setTimeout(() => glue(i), reduce ? 0 : 550);
     window.setTimeout(() => slot.classList.remove('is-found'), 1800);
   }
 
@@ -1747,8 +1841,8 @@ let serviceNo = 0;
       b.style.setProperty('--y', `${s.y}px`);
       b.style.setProperty('--r', `${s.r}deg`);
       b.dataset.work = String(wi);
-      if (!missing.has(wi)) b.classList.add('is-glued');
-      b.setAttribute('aria-label', missing.has(wi) ? `${w.client}, ${w.category}. Colar no álbum` : `${w.client}, ${w.category}. Achar no álbum`);
+      b.classList.add('is-glued');
+      b.setAttribute('aria-label', `${w.client}, ${w.category}. Achar no álbum`);
       b.innerHTML = `<img src="${w.thumb}" alt="" width="520" height="347" decoding="async"><span class="flying__plate"><span class="label flying__no">OQEP ${pad(w.number)} · ${w.category}</span><span class="label flying__name"></span></span>`;
       b.querySelector('.flying__name')!.textContent = w.client;
       b.addEventListener('click', () => findInAlbum(wi));
@@ -1790,11 +1884,10 @@ let serviceNo = 0;
       pack.style.opacity = '0';
     }
     spawn(picks);
-    hintText.textContent = missing.size ? 'Toque numa figurinha para colar no álbum.' : 'Toque numa figurinha para achar o trabalho no álbum.';
+    hintText.textContent = 'Toque numa figurinha para achar o trabalho no álbum.';
     again.hidden = false;
   }
 
-  if (missing.size) hintText.textContent = `Abra o pacotinho: faltam ${missing.size} figurinhas no álbum.`;
   pack.addEventListener('click', open);
   again.addEventListener('click', () => {
     const picks = draw(5);

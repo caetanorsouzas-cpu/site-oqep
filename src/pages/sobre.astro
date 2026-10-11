@@ -16,7 +16,7 @@ const founderPhoto = photoFor(founder.photo);
 
 <Base
   title="Sobre nós · O Que Eu Postaria?"
-  description="Conheça a O Que Eu Postaria?: fundada em 2021 em Porto Alegre pela jornalista Andréia Ramires, e o time que cuida da comunicação dos nossos clientes."
+  description="Conheça a O Que Eu Postaria?: fundada em 2021 em Porto Alegre pela jornalista Andréia Ramires. Atendemos todos os nichos, mas a advocacia é a nossa casa: 50% dos nossos clientes são advogados."
 >
   <Header current="sobre" />
 
@@ -48,7 +48,8 @@ const founderPhoto = photoFor(founder.photo);
 
           <div class="founder__text">
             <p class="founder__intro">
-              A {agency.name} foi fundada em 8 de fevereiro de 2021, em Porto Alegre, pela jornalista <strong>Andréia Ramires</strong>.
+              A {agency.name} foi fundada em 8 de fevereiro de 2021, em Porto Alegre, pela jornalista <strong>Andréia Ramires</strong>. Atendemos todos os
+              nichos, mas a advocacia é a nossa casa: metade dos nossos clientes são advogados.
             </p>
             <blockquote class="founder__quote">
               {founderQuote.map((p) => <p>{p}</p>)}
@@ -62,8 +63,8 @@ const founderPhoto = photoFor(founder.photo);
             <dd>{agency.founded}</dd>
           </div>
           <div>
-            <dt class="label">Sede</dt>
-            <dd>{agency.city}</dd>
+            <dt class="label">Clientes advogados</dt>
+            <dd>50%</dd>
           </div>
           <div>
             <dt class="label">Empresas e profissionais atendidos</dt>
@@ -107,7 +108,7 @@ const founderPhoto = photoFor(founder.photo);
       <div class="wrap talk__in">
         <div>
           <h2 class="title talk__title" id="talk-title">Fale com o time</h2>
-          <p class="talk__lead">Escolha com quem quer conversar. A gente entende o seu momento e prepara uma proposta para o seu negócio.</p>
+          <p class="talk__lead">Conte para a gente o que o seu escritório precisa. A gente entende o seu momento e prepara uma proposta especial para você.</p>
         </div>
         <div class="talk__actions">
           <a class="btn btn--foil" href="/#contato">Ver contatos <Icon name="arrow" /></a>
