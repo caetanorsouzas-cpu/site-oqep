@@ -31,7 +31,7 @@ export const contacts: Contact[] = [
     role: 'Comercial',
     phone: '+55 51 98227-0443',
     whatsapp: wa('5551982270443'),
-    email: 'henrique.souza@oqueeupostariamkt.com.br',
+    email: 'comercial@oqueeupostariamkt.com.br',
   },
   {
     name: 'Andréia Ramires',
@@ -169,9 +169,7 @@ export const portfolio: Work[] = [
   { file: '18-redes-julia-bittencourt.jpg', client: 'Júlia Bittencourt Advogados', category: 'Redes sociais' },
   { file: 'mk09-interna-crippa-rey.jpg', client: 'Crippa Rey: stories e eventos', category: 'Comunicação interna' },
   { file: '35-endomarketing-crippa-rey-1.jpg', client: 'Crippa Rey Advogados', category: 'Comunicação interna' },
-  { file: '36-endomarketing-crippa-rey-2.jpg', client: 'Crippa Rey Advogados', category: 'Comunicação interna' },
   { file: 'mk10-identidade-advocacia.jpg', client: 'Logos para escritórios', category: 'Identidade visual' },
-  { file: '40-identidade-fabiola-marabiza.jpg', client: 'Fabíola Marabiza', category: 'Identidade visual' },
   { file: 'mk11-papelaria-timbrados.jpg', client: 'Folhas timbradas', category: 'Papelaria' },
   { file: 'mk12-papelaria-cartoes.jpg', client: 'Cartões, pastas e envelopes', category: 'Papelaria' },
   { file: '48-impressos-pasta.jpg', client: 'Borges Advogados', category: 'Papelaria' },
@@ -194,20 +192,6 @@ export const testimonials = [
     services: 'Gestão de redes sociais',
     highlight: '…o atendimento é individualizado e humanizado!',
     text: 'Competência. Agilidade. Assertividade e estratégias inovadoras me fazem ser uma cliente muito satisfeita da O que eu Postaria. Além de sempre estarem alinhadas com as inovações da área do marketing, o atendimento é individualizado e humanizado!',
-  },
-  {
-    name: 'Stephanie Matos',
-    role: 'Sócia-proprietária da SulMinas Assessoria Consular',
-    services: 'Criação de logo e gestão de redes sociais',
-    highlight: '…nos mostrando o que realmente traz resultados.',
-    text: 'Desde o início estamos tendo uma ótima experiência com o serviço, a Andréia está nos auxiliando desde a parte de criação da logo da empresa, identidade visual, cuidando do nosso perfil, nos dando dicas e ideias do que postar, nos incentivando na gravação de vídeos e nos mostrando o que realmente traz resultados. O nosso conteúdo tem sido de extrema qualidade, muito organizado, com uma arte que chama a atenção de possíveis clientes. Ter alguém que cuide dessa parte pra nós tem sido muito importante para o crescimento da empresa.',
-  },
-  {
-    name: 'Renata Toribio',
-    role: 'Psicóloga',
-    services: 'Estratégia e gestão de redes sociais',
-    highlight: 'Ela é super capacitada e dedicada em oferecer o melhor…',
-    text: 'Conheci o trabalho da Andréia através de uma amiga, entrei em contato com ela e ela rapidamente já me respondeu, marcamos uma reunião e iniciamos! Ela é super capacitada e dedicada em oferecer o melhor, sempre fui atendida com muita rapidez e comprometimento. Estou muito satisfeita com a nossa parceria!',
   },
 ];
 
