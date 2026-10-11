@@ -115,14 +115,16 @@ const fan = ['mk10', 'mk07', 'mk05'].map((f) => works.find((w) => w.file.startsW
     <!-- Quem somos: a advocacia é a nossa casa -->
     <section class="page page--paper home" aria-labelledby="home-title">
       <div class="wrap home__grid">
-        <h2 class="title home__title" id="home-title">
+        <h3 class="title home__title">
           Atendemos todos os nichos. <span class="home__line">Mas a advocacia é a nossa casa.</span>
-        </h2>
+        </h3>
         <p class="home__stat">
           <span class="title home__num">50%</span>
           <span class="home__of">dos nossos clientes são advogados.</span>
         </p>
-        <div class="home__text">
+        <div class="home__side">
+          <h2 class="title home__kicker" id="home-title">Quem somos</h2>
+          <div class="home__text">
           <div class="home__body">
             <p>
               A {agency.name} nasceu em 2021 para simplificar a comunicação de empresas e profissionais nas redes sociais, com estratégia antes de execução.
@@ -141,6 +143,7 @@ const fan = ['mk10', 'mk07', 'mk05'].map((f) => works.find((w) => w.file.startsW
             <path d="M226 4C232 84 150 140 34 152" />
             <path d="M54 164 34 152l17-15" />
           </svg>
+          </div>
         </div>
       </div>
     </section>
@@ -824,6 +827,13 @@ const fan = ['mk10', 'mk07', 'mk05'].map((f) => works.find((w) => w.file.startsW
     pointer-events: none;
   }
 
+  /* Where the arrow shows, open the gap so its tip stops above the next title */
+  @media (min-width: 80.01rem) {
+    .home {
+      padding-bottom: 2.5rem;
+    }
+  }
+
   /* Below this the gap to the next title is too short for the arrow */
   @media (max-width: 80rem) {
     .home__arrow {
@@ -845,9 +855,17 @@ const fan = ['mk10', 'mk07', 'mk05'].map((f) => works.find((w) => w.file.startsW
     color: var(--ink);
   }
 
-  .home__text {
+  .home__side {
+    display: grid;
+    gap: clamp(0.8rem, 1.5vw, 1.1rem);
     grid-column: 2;
     grid-row: 1 / span 2;
+  }
+
+  .home__kicker {
+    font-size: clamp(1.7rem, 2.8vw, 2.3rem);
+    color: var(--terra);
+    text-align: center;
   }
 
   @media (max-width: 48rem) {
@@ -855,9 +873,35 @@ const fan = ['mk10', 'mk07', 'mk05'].map((f) => works.find((w) => w.file.startsW
       grid-template-columns: 1fr;
     }
 
-    .home__text {
+    /* On one column the agency sticker leads, title and stat follow */
+    .home__side {
       grid-column: auto;
       grid-row: auto;
+      order: -1;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Centered like "Quem somos" above and the strategy title below */
+    .home__title,
+    .home__of {
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    .home__stat {
+      justify-items: center;
+    }
+
+    .home__title {
+      font-size: 1.5rem;
+    }
+
+    .home__num {
+      font-size: 3.2rem;
+    }
+
+    .home__of {
+      font-size: 1.05rem;
     }
   }
 
