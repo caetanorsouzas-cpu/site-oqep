@@ -123,14 +123,24 @@ const fan = ['mk10', 'mk07', 'mk05'].map((f) => works.find((w) => w.file.startsW
           <span class="home__of">dos nossos clientes são advogados.</span>
         </p>
         <div class="home__text">
-          <p>
-            A {agency.name} nasceu em 2021 para simplificar a comunicação de empresas e profissionais nas redes sociais, com estratégia antes de execução.
+          <div class="home__body">
+            <p>
+              A {agency.name} nasceu em 2021 para simplificar a comunicação de empresas e profissionais nas redes sociais, com estratégia antes de execução.
+            </p>
+            <p>Somos uma agência 100% online, com clientes no RS, SC e SP, e trabalhamos com atenção individualizada e parceria de longo prazo.</p>
+            <p>
+              Para o direito, isso significa comunicar com <strong>ética, clareza, autoridade e dentro das normas da OAB</strong>, sem perder o lado humano de
+              cada advogado e escritório.
+            </p>
+          </div>
+          <p class="home__plate">
+            <span class="home__platename label">{agency.name}</span>
+            <span class="home__platecat label">Desde 2021 · Porto Alegre (RS)</span>
           </p>
-          <p>Somos uma agência 100% online, com clientes no RS, SC e SP, e trabalhamos com atenção individualizada e parceria de longo prazo.</p>
-          <p>
-            Para o direito, isso significa comunicar com <strong>ética, clareza, autoridade e dentro das normas da OAB</strong>, sem perder o lado humano de
-            cada advogado e escritório.
-          </p>
+          <svg class="home__arrow" viewBox="0 0 260 170" aria-hidden="true" focusable="false">
+            <path d="M226 4C232 84 150 140 34 152" />
+            <path d="M54 164 34 152l17-15" />
+          </svg>
         </div>
       </div>
     </section>
@@ -139,30 +149,15 @@ const fan = ['mk10', 'mk07', 'mk05'].map((f) => works.find((w) => w.file.startsW
     <section class="page page--paper method" aria-labelledby="method-title">
       <div class="wrap method__grid">
         <div class="method__head">
-          <h2 class="title method__title" id="method-title">Antes do post, a estratégia.</h2>
+          <h2 class="title method__title" id="method-title">Tudo começa pela estratégia.</h2>
           <p class="method__lead">
-            Muita agência sai direto fazendo post, a gente começa pela estratégia: um estudo de mercado e do cliente que leva de 20 a 30 dias. Cada advogado
-            recebe um documento completo, do perfil do especialista ao conteúdo de cada rede.
+            Cada cliente recebe um documento completo, do perfil do especialista ao conteúdo de cada rede. Aqui, uma amostra do que ele reúne.
           </p>
         </div>
 
-        <ol class="phases" role="list">
-          <li class="phase">
-            <h3 class="phase__title">Estratégia</h3>
-            <p>20 a 30 dias de estudo: personalidade, concorrência, personas, linhas editoriais e a estratégia de cada rede.</p>
-          </li>
-          <li class="phase">
-            <h3 class="phase__title">Execução</h3>
-            <p>Redes, marca, papelaria, apresentações e site seguindo o plano, com cronograma mensal aprovado por você.</p>
-          </li>
-          <li class="phase">
-            <h3 class="phase__title">Parceria</h3>
-            <p>Medimos o sucesso pelo tempo de parceria e pela confiança de quem trabalha com a gente.</p>
-          </li>
-        </ol>
 
         <div class="method__list">
-          <h3 class="label method__listtitle">O que entra na estratégia · exemplo do advogado Fausto Manica</h3>
+          <h3 class="label method__listtitle">Estratégia advogado Fausto Manica</h3>
           <ul role="list" class="checks">
             {
               strategySteps.map((s) => (
@@ -311,11 +306,12 @@ const fan = ['mk10', 'mk07', 'mk05'].map((f) => works.find((w) => w.file.startsW
     </section>
 
     <!-- Contato -->
-    <section class="page page--paper contact" id="contato" aria-label="Contato">
+    <section class="page page--paper contact" id="contato" aria-labelledby="contact-title">
       <div class="wrap">
         <div class="contact__top">
         <div class="contact__head">
-          <p>Vamos conversar? Conte para a gente o que o seu escritório precisa. A gente entende o seu momento e prepara uma proposta especial para você.</p>
+          <h2 class="title contact__title" id="contact-title">Vamos conversar?</h2>
+          <p class="contact__sub">Conte para a gente o que o seu escritório precisa.</p>
         </div>
 
         <ul class="people" role="list">
@@ -345,17 +341,19 @@ const fan = ['mk10', 'mk07', 'mk05'].map((f) => works.find((w) => w.file.startsW
         </div>
 
         <div class="contact__news">
-          <Newsletter id="footer" tone="paper" />
-          <div class="contact__more">
-            <div class="contact__blog">
-              <p>
-                <span class="label contact__blog-kicker">Blog · {postCount} posts</span>
-                Ainda pensando? Comece pelas dicas de comunicação e marketing que a gente publica.
-              </p>
-              <a class="btn btn--ink" href="/blog/">
-                Acessar o blog <Icon name="arrow" />
-              </a>
-            </div>
+          <div class="contact__col">
+            <span class="label contact__kicker">Newsletter</span>
+            <Newsletter id="footer" tone="paper" />
+          </div>
+          <div class="contact__col contact__blog">
+            <span class="label contact__kicker">Blog · {postCount} posts</span>
+            <p>Ainda pensando? Comece pelas dicas de comunicação e marketing que a gente publica.</p>
+            <a class="btn btn--ink" href="/blog/">
+              Acessar o blog <Icon name="arrow" />
+            </a>
+          </div>
+          <div class="contact__col">
+            <span class="label contact__kicker">Instagram</span>
             <a class="contact__ig" href={agency.instagram} target="_blank" rel="noopener">
               <Icon name="instagram" />
               <span>
@@ -730,20 +728,24 @@ const fan = ['mk10', 'mk07', 'mk05'].map((f) => works.find((w) => w.file.startsW
 
   /* Home of the law: who we are */
   .home {
-    padding-block: clamp(4rem, 9vw, 8rem) 0;
+    padding-block: clamp(3.5rem, 7vw, 6rem) 0;
+    /* above the next section so the arrow can run into it */
+    z-index: 1;
   }
 
+  /* Title and stat stacked on the left, the agency sticker beside both */
   .home__grid {
     display: grid;
-    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-    gap: clamp(2rem, 5vw, 4.5rem) clamp(1.5rem, 5vw, 5rem);
-    align-items: start;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: clamp(1.5rem, 3vw, 2.5rem) clamp(1.5rem, 5vw, 5rem);
+    align-items: center;
   }
 
   .home__title {
-    grid-column: 1 / -1;
     max-width: 22ch;
-    font-size: clamp(2rem, 4.6vw, 4.2rem);
+    font-size: clamp(1.8rem, 3.8vw, 3.4rem);
+    /* room for the accent on É between the lines */
+    line-height: 1.08;
     color: var(--terra-dark);
   }
 
@@ -758,107 +760,149 @@ const fan = ['mk10', 'mk07', 'mk05'].map((f) => works.find((w) => w.file.startsW
   }
 
   .home__num {
-    font-size: clamp(4.5rem, 11vw, 9rem);
+    font-size: clamp(3.8rem, 8.5vw, 7rem);
     line-height: 0.8;
     color: var(--terra);
   }
 
   .home__of {
     max-width: 16ch;
-    font-size: clamp(1.35rem, 2.3vw, 1.9rem);
+    font-size: clamp(1.2rem, 1.9vw, 1.6rem);
     font-weight: 800;
     line-height: 1.2;
     color: var(--terra-dark);
   }
 
+  /* The about text as a sticker of the agency itself, plate and all;
+     it fills its column so its edge lines up with the strategy card below */
   .home__text {
     display: grid;
-    gap: 1rem;
-    max-width: 56ch;
-    font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+    padding: clamp(1.1rem, 2vw, 1.6rem) clamp(1.1rem, 2vw, 1.6rem) 0;
+    background: var(--white);
+    border-radius: var(--radius-sticker);
+    box-shadow: var(--shadow-sticker);
+    position: relative;
+    font-size: clamp(0.98rem, 1.2vw, 1.08rem);
     color: var(--ink-soft);
+  }
+
+  .home__body {
+    display: grid;
+    gap: 0.8rem;
+    padding-bottom: clamp(1.1rem, 2vw, 1.6rem);
+  }
+
+  .home__plate {
+    display: grid;
+    margin-inline: calc(-1 * clamp(1.1rem, 2vw, 1.6rem));
+    padding: 0.6rem clamp(1.1rem, 2vw, 1.6rem) 0.7rem;
+    background: var(--ink);
+    border-radius: 0 0 var(--radius-sticker) var(--radius-sticker);
+    color: var(--white);
+    line-height: 1.15;
+  }
+
+  /* Curved arrow from the agency sticker down to "Tudo começa pela estratégia" */
+  .home__arrow {
+    position: absolute;
+    top: calc(100% + 0.3rem);
+    left: -2%;
+    width: clamp(8rem, 9vw, 10.5rem);
+    height: auto;
+    overflow: visible;
+    fill: none;
+    stroke: var(--terra);
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    pointer-events: none;
+  }
+
+  /* Below this the gap to the next title is too short for the arrow */
+  @media (max-width: 80rem) {
+    .home__arrow {
+      display: none;
+    }
+  }
+
+  .home__platename {
+    font-size: 1.1rem;
+  }
+
+  .home__platecat {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--foil);
   }
 
   .home__text strong {
     color: var(--ink);
   }
 
+  .home__text {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+
   @media (max-width: 48rem) {
     .home__grid {
       grid-template-columns: 1fr;
+    }
+
+    .home__text {
+      grid-column: auto;
+      grid-row: auto;
     }
   }
 
   /* Method */
   .method {
-    padding-block: clamp(4rem, 9vw, 8rem);
+    padding-block: clamp(3.5rem, 7vw, 6rem);
   }
 
   .method__grid {
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
-    gap: clamp(2.5rem, 5vw, 4.5rem) clamp(1rem, 3vw, 2.5rem);
+    gap: clamp(2rem, 4vw, 3.5rem) clamp(1rem, 3vw, 2.5rem);
   }
 
   .method__head {
-    grid-column: 1 / span 7;
+    grid-column: 1 / -1;
+    text-align: center;
   }
 
   .method__title {
-    font-size: clamp(2.4rem, 6vw, 5.4rem);
+    max-width: 16ch;
+    margin-inline: auto;
+    font-size: clamp(1.7rem, 3vw, 3rem);
+    /* room for the accent on É between the two lines */
+    line-height: 1.1;
     color: var(--terra);
   }
 
   .method__lead {
-    margin-top: 1.5rem;
+    margin: 1.1rem auto 0;
     max-width: 58ch;
-    font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+    font-size: clamp(1rem, 1.3vw, 1.15rem);
     color: var(--ink-soft);
-  }
-
-  .phases {
-    grid-column: 1 / -1;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0;
-    border-top: 3px solid var(--ink);
-  }
-
-  .phase {
-    padding: 1.4rem clamp(1rem, 2.5vw, 2rem) 0 0;
-  }
-
-  .phase + .phase {
-    padding-left: clamp(1rem, 2.5vw, 2rem);
-    border-left: 1px solid var(--paper-line);
-  }
-
-  .phase__title {
-    margin: 0.3rem 0 0.6rem;
-    font-family: var(--font-display);
-    font-size: clamp(1.6rem, 2.6vw, 2.2rem);
-    font-weight: 400;
-    text-transform: uppercase;
-    line-height: 1;
-  }
-
-  .phase p {
-    color: var(--ink-soft);
-    max-width: 34ch;
   }
 
   .method__list {
     grid-column: 1 / -1;
-    padding: clamp(1.4rem, 3vw, 2.4rem);
+    padding: clamp(1.2rem, 2.4vw, 1.9rem);
     background: var(--white);
     border-radius: 1rem;
     box-shadow: 0 0.1rem 0.2rem rgb(0 0 0 / 0.06), 0 1rem 2rem -1rem rgb(0 0 0 / 0.18);
   }
 
+  /* Cream box, like "A gente responde." in the hero */
   .method__listtitle {
-    font-size: 1rem;
-    color: var(--terra);
+    width: fit-content;
     margin-bottom: 1.1rem;
+    padding: 0.2rem 0.55rem 0.25rem;
+    background: var(--cream);
+    color: var(--terra-deep);
+    font-size: 1rem;
   }
 
   .checks {
@@ -888,17 +932,6 @@ const fan = ['mk10', 'mk07', 'mk05'].map((f) => works.find((w) => w.file.startsW
   @media (max-width: 48rem) {
     .method__head {
       grid-column: 1 / -1;
-    }
-
-    .phases {
-      grid-template-columns: 1fr;
-    }
-
-    .phase + .phase {
-      padding-left: 0;
-      border-left: 0;
-      border-top: 1px solid var(--paper-line);
-      margin-top: 1.4rem;
     }
   }
 
@@ -1386,34 +1419,32 @@ const fan = ['mk10', 'mk07', 'mk05'].map((f) => works.find((w) => w.file.startsW
     padding-block: clamp(4rem, 9vw, 8rem);
   }
 
-  /* intro and people share the two columns of the newsletter row below */
   .contact__top {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 2rem 4rem;
-    align-items: start;
+    align-items: center;
   }
 
-  .contact__head {
-    display: grid;
-    gap: 1rem;
+  .contact__title {
+    font-size: clamp(2.4rem, 4vw, 4rem);
+    color: var(--terra);
   }
 
-  .contact__head p {
-    font-size: clamp(1.1rem, 1.6vw, 1.3rem);
-    color: var(--ink-soft);
-    max-width: 34ch;
+  .contact__sub {
+    margin-top: 1.4rem;
+    max-width: 28ch;
+    font-size: clamp(1.25rem, 2vw, 1.6rem);
+    font-weight: 800;
+    line-height: 1.25;
+    color: var(--terra-dark);
   }
 
-  .contact__top .people {
-    margin-top: 0;
-  }
 
   .people {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(min(100%, 17.5rem), 1fr));
     gap: 2rem 1.25rem;
-    margin-top: clamp(2rem, 4vw, 3rem);
   }
 
   .person {
@@ -1495,43 +1526,48 @@ const fan = ['mk10', 'mk07', 'mk05'].map((f) => works.find((w) => w.file.startsW
     height: 1.05rem;
   }
 
+  /* Three ways to keep in touch, side by side under one rule */
   .contact__news {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 2rem 4rem;
-    align-items: end;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr);
     margin-top: clamp(3rem, 6vw, 4.5rem);
-    padding-top: 2rem;
     border-top: 3px solid var(--ink);
   }
 
-  .contact__more {
+  .contact__col {
     display: grid;
-    gap: 1.8rem;
-  }
-
-  .contact__blog {
-    display: grid;
+    align-content: start;
     justify-items: start;
-    gap: 1rem;
-    max-width: 40ch;
-    font-size: 1.05rem;
+    gap: 0.9rem;
+    padding: 1.6rem clamp(1rem, 2.5vw, 2rem) 0 0;
   }
 
-  .contact__blog-kicker {
-    display: block;
-    margin-bottom: 0.3rem;
+  .contact__col + .contact__col {
+    padding-left: clamp(1rem, 2.5vw, 2rem);
+    border-left: 1px solid var(--paper-line);
+  }
+
+  .contact__col :global(.news) {
+    width: 100%;
+  }
+
+  .contact__kicker {
     font-size: 0.85rem;
     color: var(--terra);
+  }
+
+  .contact__blog p {
+    max-width: 34ch;
+    font-size: 1.05rem;
   }
 
   .contact__ig {
     display: flex;
     gap: 0.8rem;
     align-items: center;
+    max-width: 34ch;
     font-size: 1.05rem;
     text-decoration: none;
-    max-width: 40ch;
   }
 
   .contact__ig :global(svg) {
@@ -1545,10 +1581,38 @@ const fan = ['mk10', 'mk07', 'mk05'].map((f) => works.find((w) => w.file.startsW
     text-decoration: underline;
   }
 
+  @media (max-width: 64rem) {
+    .contact__news {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .contact__col:first-child {
+      grid-column: 1 / -1;
+      padding-bottom: 1.6rem;
+    }
+
+    .contact__col + .contact__col:nth-child(2) {
+      padding-left: 0;
+      border-left: 0;
+      border-top: 1px solid var(--paper-line);
+    }
+
+    .contact__col:nth-child(3) {
+      border-top: 1px solid var(--paper-line);
+    }
+  }
+
   @media (max-width: 48rem) {
     .contact__top,
     .contact__news {
       grid-template-columns: 1fr;
+    }
+
+    .contact__col + .contact__col {
+      padding-left: 0;
+      border-left: 0;
+      border-top: 1px solid var(--paper-line);
+      margin-top: 1.6rem;
     }
   }
 
