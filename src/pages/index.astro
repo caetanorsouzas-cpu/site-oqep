@@ -70,6 +70,9 @@ const fan = ['mk10', 'mk07', 'mk05'].map((f) => works.find((w) => w.file.startsW
           <p class="hero__sub">
             Agência de comunicação e marketing de Porto Alegre (RS) para advogados, escritórios e empresas do Brasil inteiro.
           </p>
+          <a class="btn btn--foil hero__wa" href={primaryContact.whatsapp} target="_blank" rel="noopener">
+            <Icon name="whatsapp" /> Fale conosco no WhatsApp
+          </a>
           <Newsletter id="hero" />
           <a class="hero__talk" href={primaryContact.whatsapp} target="_blank" rel="noopener">
             <Icon name="whatsapp" />
@@ -691,48 +694,57 @@ const fan = ['mk10', 'mk07', 'mk05'].map((f) => works.find((w) => w.file.startsW
     }
   }
 
-  /* On phones the cover is just the headline and its lines, so the 50% page
-     comes right up; the pack, newsletter and WhatsApp link stay for wider screens
-     (the newsletter is also in the contact section) */
+  /* The cover is the headline and its lines, plus the sticker pack on wider
+     screens, so the 50% page comes right up. The newsletter and WhatsApp link
+     are kept in the markup but hidden (the newsletter is also in the contact section) */
+  .hero {
+    padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .hero__copy :global(.news),
+  .hero__talk {
+    display: none;
+  }
+
+  .hero__sub {
+    margin-bottom: 0;
+  }
+
+  .hero__wa {
+    margin-top: 1.8rem;
+  }
+
+  /* On phones the header's WhatsApp button is enough */
   @media (max-width: 48rem) {
-    .hero {
-      padding-bottom: 2.5rem;
-    }
-
     .stage,
-    .hero__copy :global(.news),
-    .hero__talk {
+    .hero__wa {
       display: none;
-    }
-
-    .hero__sub {
-      margin-bottom: 0;
     }
   }
 
   /* Home of the law: who we are */
   .home {
-    padding-block: clamp(3.5rem, 7vw, 6rem) 0;
+    padding-block: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 3vw, 2.5rem);
     /* above the next page so the stat sticker's shadow is not cut off */
     z-index: 1;
   }
 
-  /* The headline and the stat sticker side by side, centered as a pair
-     like the strategy title below */
+  /* The stat sticker first, stuck on top of a white card with the headline */
   .home__grid {
     display: grid;
-    grid-template-columns: auto auto;
-    justify-content: center;
-    gap: clamp(1.5rem, 3vw, 2.5rem) clamp(2.5rem, 6vw, 6rem);
-    align-items: center;
+    justify-items: center;
   }
 
   .home__title {
-    /* as wide as its longest line, so the sticker sits right beside it */
-    max-width: 14.3ch;
-    font-size: clamp(1.8rem, 4vw, 3.5rem);
+    width: min(100%, 50rem);
+    padding: clamp(3.2rem, 5vw, 4.5rem) clamp(0.9rem, 3vw, 2.5rem) clamp(1.6rem, 3vw, 2.5rem);
+    background: var(--white);
+    border-radius: var(--radius-sticker);
+    box-shadow: var(--shadow-sticker);
+    font-size: clamp(1.75rem, 3.6vw, 3.1rem);
     /* room for the accent on É between the lines */
     line-height: 1.08;
+    text-align: center;
     color: var(--terra-dark);
   }
 
@@ -745,8 +757,12 @@ const fan = ['mk10', 'mk07', 'mk05'].map((f) => works.find((w) => w.file.startsW
      It is the page's one figure, so it sits lifted off the paper */
   .home__stat {
     position: relative;
+    z-index: 1;
     display: grid;
+    order: -1;
     justify-self: center;
+    /* overlaps the top of the headline card */
+    margin-bottom: clamp(-3rem, -4vw, -2.2rem);
     width: fit-content;
     padding: 0.6rem 0.6rem 0;
     /* ink at the very bottom, so no white hairline shows under the plate
@@ -801,54 +817,12 @@ const fan = ['mk10', 'mk07', 'mk05'].map((f) => works.find((w) => w.file.startsW
   }
 
   @media (max-width: 48rem) {
-    .home {
-      padding-bottom: 1.5rem;
-    }
-
-    .home__grid {
-      grid-template-columns: 1fr;
-    }
-
-    /* On one column the stat sticker leads, the headline follows */
-    .home__stat {
-      order: -1;
-      margin-bottom: 0.5rem;
-    }
-
-    .home__title {
-      margin-inline: auto;
-      font-size: 1.8rem;
-      text-align: center;
-    }
-
     .home__num {
       font-size: 4.5rem;
     }
 
     .home__of {
       font-size: 1.15rem;
-    }
-  }
-
-  /* Phones: stat and headline on one white card, the sticker overlapping its top */
-  @media (max-width: 48rem) {
-    .home__grid {
-      gap: 0;
-    }
-
-    .home__stat {
-      z-index: 1;
-      margin-bottom: -2.2rem;
-    }
-
-    .home__title {
-      max-width: none;
-      width: 100%;
-      padding: 3.2rem 0.9rem 1.6rem;
-      background: var(--white);
-      border-radius: var(--radius-sticker);
-      box-shadow: var(--shadow-sticker);
-      font-size: 1.75rem;
     }
   }
 
