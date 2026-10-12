@@ -198,6 +198,14 @@ const base = home ? '' : '/';
     }
   }
 
+  /* On phones the strip is just the brand and WhatsApp, no menu */
+  @media (max-width: 48rem) {
+    .top__menu,
+    .top__nav {
+      display: none;
+    }
+  }
+
   @media (max-width: 30rem) {
     .top__desc {
       display: none;
