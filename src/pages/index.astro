@@ -691,10 +691,22 @@ const fan = ['mk10', 'mk07', 'mk05'].map((f) => works.find((w) => w.file.startsW
     }
   }
 
-  /* On phones the cover is just the copy; the pack stays for wider screens */
+  /* On phones the cover is just the headline and its lines, so the 50% page
+     comes right up; the pack, newsletter and WhatsApp link stay for wider screens
+     (the newsletter is also in the contact section) */
   @media (max-width: 48rem) {
-    .stage {
+    .hero {
+      padding-bottom: 2.5rem;
+    }
+
+    .stage,
+    .hero__copy :global(.news),
+    .hero__talk {
       display: none;
+    }
+
+    .hero__sub {
+      margin-bottom: 0;
     }
   }
 
@@ -815,6 +827,28 @@ const fan = ['mk10', 'mk07', 'mk05'].map((f) => works.find((w) => w.file.startsW
 
     .home__of {
       font-size: 1.15rem;
+    }
+  }
+
+  /* Phones: stat and headline on one white card, the sticker overlapping its top */
+  @media (max-width: 48rem) {
+    .home__grid {
+      gap: 0;
+    }
+
+    .home__stat {
+      z-index: 1;
+      margin-bottom: -2.2rem;
+    }
+
+    .home__title {
+      max-width: none;
+      width: 100%;
+      padding: 3.2rem 0.9rem 1.6rem;
+      background: var(--white);
+      border-radius: var(--radius-sticker);
+      box-shadow: var(--shadow-sticker);
+      font-size: 1.75rem;
     }
   }
 
